@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for win or move to next row
     setTimeout(() => {
       if (guess === targetWord) {
-        alert('Congratulations! You guessed the word!');
+        alert('Smart cookeh!');
         isGameOver = true;
       } else {
         currentRow++;
