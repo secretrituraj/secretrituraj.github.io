@@ -15,37 +15,19 @@ header {
   z-index: 100;
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 10px;
-}
-
 header h1 {
   font-family: 'Merriweather', serif;
   font-size: 2em;
   margin: 0;
-}
-
-.icon-button {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.icon-button img {
-  width: 100%;
-  height: auto;
+  padding: 10px;
+  text-align: center;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px; /* Adjust for header height */
+  padding-top: 70px; /* Adjust for header height */
 }
 
 /* Game Board */
@@ -175,7 +157,7 @@ main {
 /* Notification */
 #notification-container {
   position: fixed;
-  top: 90px; /* Adjust below header */
+  top: 80px; /* Adjust below header */
   left: 50%;
   transform: translateX(-50%);
   background-color: #000000cc;
@@ -205,9 +187,6 @@ main {
     width: 48px;
     height: 48px;
     font-size: 1.5em;
-  }
-  .header-content {
-    padding: 5px;
   }
   header h1 {
     font-size: 1.5em;
