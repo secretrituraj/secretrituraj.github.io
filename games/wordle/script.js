@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gameBoard = document.getElementById('game-board');
   const keyboard = document.getElementById('keyboard');
+  const notificationContainer = document.getElementById('notification-container');
 
   // Game variables
   let currentRow = 0;
@@ -89,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tile = row.children[currentTile];
     tile.textContent = letter.toUpperCase();
     tile.setAttribute('data-letter', letter);
+    tile.style.borderColor = '#565758';
     currentTile++;
   }
 
@@ -99,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const tile = row.children[currentTile];
       tile.textContent = '';
       tile.removeAttribute('data-letter');
+      tile.style.borderColor = '#3a3a3c';
     }
   }
 
@@ -111,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const tile = row.children[i];
       const letter = tile.getAttribute('data-letter');
       if (!letter) {
-        alert('Not enough letters!');
+        showNotification('Not enough letters!');
         return;
       }
       guess += letter;
@@ -119,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!validWords.includes(guess)) {
-      alert('Word not in list!');
+      showNotification('Word not in list!');
       return;
     }
 
@@ -137,9 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const letter = guessItem.letter;
       const tile = guessItem.tile;
 
+      setTimeout(() => {
+        tile.classList.add('flip');
+      }, 300 * index);
+
       if (letter === targetWordArray[index]) {
-        tile.classList.add('correct');
-        updateKeyboard(letter, 'correct');
+        setTimeout(() => {
+          tile.classList.add('correct');
+          updateKeyboard(letter, 'correct');
+        }, 300 * index);
         letterCount[letter]--;
       }
     });
@@ -151,47 +160,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!tile.classList.contains('correct')) {
         if (targetWordArray.includes(letter) && letterCount[letter] > 0) {
-          tile.classList.add('present');
-          updateKeyboard(letter, 'present');
+          setTimeout(() => {
+            tile.classList.add('present');
+            updateKeyboard(letter, 'present');
+          }, 300 * index);
           letterCount[letter]--;
         } else {
-          tile.classList.add('absent');
-          updateKeyboard(letter, 'absent');
+          setTimeout(() => {
+            tile.classList.add('absent');
+            updateKeyboard(letter, 'absent');
+          }, 300 * index);
         }
       }
-
-      tile.classList.add('flip');
-      setTimeout(() => {
-        tile.classList.remove('flip');
-      }, 500);
     });
 
     // Check for win or move to next row
     setTimeout(() => {
       if (guess === targetWord) {
-        alert('Smart cookeh!');
+        showNotification('Congratulations! You guessed the word!');
         isGameOver = true;
       } else {
         currentRow++;
         currentTile = 0;
         if (currentRow >= 6) {
-          alert(`Game Over! The word was "${targetWord.toUpperCase()}".`);
+          showNotification(`Game Over! The word was "${targetWord.toUpperCase()}".`);
           isGameOver = true;
         }
       }
-    }, 500);
+    }, 1800);
   }
 
   function updateKeyboard(letter, status) {
     const keyButtons = document.querySelectorAll('.key');
     keyButtons.forEach(keyButton => {
       if (keyButton.getAttribute('data-key') === letter) {
-        // Only update if the new status is better (e.g., don't overwrite 'correct' with 'present')
+        // Only update if the new status is better
         if (!keyButton.classList.contains('correct')) {
           keyButton.classList.remove('correct', 'present', 'absent');
           keyButton.classList.add(status);
         }
       }
     });
+  }
+
+  function showNotification(message) {
+    notificationContainer.textContent = message;
+    notificationContainer.classList.add('show');
+    setTimeout(() => {
+      notificationContainer.classList.remove('show');
+    }, 3000);
   }
 });

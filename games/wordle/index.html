@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Wordle - Aneilia</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Wordle Clone</title>
+  <!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Wordle</h1>
+    <h1>Wordle Clone</h1>
+    <nav>
+      <a href="index.html" class="home-link">Home</a>
+    </nav>
   </header>
   <main>
     <div id="game-board"></div>
     <div id="keyboard"></div>
   </main>
+  <!-- Notification Container -->
+  <div id="notification-container"></div>
   <!-- Include the word list -->
   <script src="words.js"></script>
   <!-- Include the main script -->

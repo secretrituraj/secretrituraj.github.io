@@ -1,53 +1,95 @@
 /* General Styles */
 body {
   margin: 0;
-  font-family: 'Verdana', sans-serif;
-  background-color: #121213;
-  color: #d7dadc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #121212 0%, #1f1f1f 100%);
+  color: #ffffff;
 }
 
 /* Header */
 header {
   padding: 20px;
+  background-color: #1f1f1f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
   margin: 0;
-  font-size: 2em;
+  font-size: 2.5em;
+  text-align: center;
+  color: #ffffff;
+}
+
+nav {
+  text-align: center;
+  margin-top: 10px;
+}
+
+nav .home-link {
+  color: #6aaa64;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav .home-link:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Game Board */
 #game-board {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
-  gap: 5px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 30px;
+  max-width: 350px;
 }
 
 .row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+  gap: 10px;
 }
 
+/* Tiles */
 .tile {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border: 2px solid #3a3a3c;
+  background-color: #1f1f1f;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2em;
   text-transform: uppercase;
-  background-color: #121213;
-  color: #d7dadc;
+  color: #ffffff;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.tile.correct {
+  background-color: #538d4e;
+  border-color: #538d4e;
+}
+
+.tile.present {
+  background-color: #b59f3b;
+  border-color: #b59f3b;
+}
+
+.tile.absent {
+  background-color: #3a3a3c;
+  border-color: #3a3a3c;
 }
 
 .tile.flip {
-  animation: flip 0.5s ease forwards;
+  animation: flip 0.6s ease forwards;
 }
 
 @keyframes flip {
@@ -62,45 +104,34 @@ h1 {
   }
 }
 
-/* Tile Colors */
-.correct {
-  background-color: #6aaa64;
-  border-color: #6aaa64;
-  color: #fff;
-}
-
-.present {
-  background-color: #c9b458;
-  border-color: #c9b458;
-  color: #fff;
-}
-
-.absent {
-  background-color: #3a3a3c;
-  border-color: #3a3a3c;
-  color: #fff;
+/* Hover Effect */
+.tile:hover {
+  transform: scale(1.05);
 }
 
 /* Keyboard */
 #keyboard {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .key-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .key {
-  margin: 0 2px;
-  padding: 10px;
-  background-color: #818384;
-  color: #fff;
-  border: none;
+  margin: 0 3px;
+  padding: 15px;
+  background-color: #d3d6da;
+  color: #000000;
+  border: 1px solid #d3d6da;
   cursor: pointer;
   font-size: 1em;
   border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0 2px 0 #9a9a9a;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
 .key.large {
@@ -108,13 +139,75 @@ h1 {
 }
 
 .key.correct {
-  background-color: #6aaa64;
+  background-color: #538d4e;
+  border-color: #538d4e;
+  color: #ffffff;
+  box-shadow: none;
 }
 
 .key.present {
-  background-color: #c9b458;
+  background-color: #b59f3b;
+  border-color: #b59f3b;
+  color: #ffffff;
+  box-shadow: none;
 }
 
 .key.absent {
   background-color: #3a3a3c;
+  border-color: #3a3a3c;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.key:hover {
+  background-color: #e8e8e8;
+}
+
+.key:active {
+  background-color: #a8a8a8;
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+/* Notification */
+#notification-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1em;
+  z-index: 1000;
+}
+
+#notification-container.show {
+  display: block;
+  animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .tile {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+  }
+  #game-board {
+    gap: 5px;
+  }
+  .key {
+    padding: 10px;
+    font-size: 0.9em;
+  }
 }

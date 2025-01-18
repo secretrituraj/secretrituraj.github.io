@@ -1,58 +1,91 @@
-/* Global Styles */
+/* General Styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-  }
-  
-  header, footer {
-    text-align: center;
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  header h1, footer p {
-    margin: 0;
-  }
-  
-  main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .game-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #121212 0%, #1f1f1f 100%);
+  color: #ffffff;
+}
+
+/* Header */
+header {
+  padding: 20px;
+  background-color: #1f1f1f;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #ffffff;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* Game List */
+.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-item {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border: 1px solid #3a3a3c;
+  width: 300px;
+  margin: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.game-item:hover {
+  transform: scale(1.05);
+}
+
+.game-item h2 {
+  margin-top: 0;
+}
+
+.play-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background-color: #538d4e;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.play-button:hover {
+  background-color: #6aaa64;
+}
+
+/* Footer */
+footer {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
   .game-item {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    width: 45%;
-    margin: 10px;
-    padding: 15px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    text-align: center;
+    width: 100%;
+    margin: 10px 0;
   }
-  
-  .game-item h2 {
-    margin-top: 0;
-  }
-  
-  .play-button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .play-button:hover {
-    background-color: #0056b3;
-  }
+}
