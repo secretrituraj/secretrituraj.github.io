@@ -5,25 +5,33 @@
   <title>My Games Website</title>
   <!-- Custom Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Welcome to My Games Website!</h1>
+    <div class="header-content">
+      <h1>Games</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Puzzles</a></li>
+          <li><a href="#">Crosswords</a></li>
+          <!-- Add more navigation links as needed -->
+        </ul>
+      </nav>
+    </div>
   </header>
   <main>
-    <div class="game-list">
-      <div class="game-item">
-        <h2>Wordle Clone</h2>
-        <p>Guess the five-letter word in six attempts.</p>
-        <a href="games/wordle/index.html" class="play-button">Play Wordle Clone</a>
+    <div class="games-grid">
+      <div class="game-card">
+        <img src="assets/wordle-thumbnail.jpg" alt="Wordle">
+        <h2>Wordle</h2>
+        <p>Guess the word in six tries.</p>
+        <a href="games/wordle/index.html" class="play-button">Play Now</a>
       </div>
-      <!-- Add more game items as needed -->
+      <!-- Add more game cards as needed -->
     </div>
   </main>
   <footer>
