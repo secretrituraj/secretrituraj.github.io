@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connections Clone</title>
+  <!-- Include Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Use Georgia and Roboto fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Connections</h1>
+    <p>Group the words into categories</p>
+  </header>
+  <main>
+    <div id="game-container">
+      <!-- Found Groups Container -->
+      <div id="found-groups"></div>
+      
+      <!-- Word Grid -->
+      <div id="word-grid"></div>
+
+      <!-- Mistakes Remaining Circles -->
+      <div id="mistakes-remaining">
+        <div class="mistake-circle"></div>
+        <div class="mistake-circle"></div>
+        <div class="mistake-circle"></div>
+        <div class="mistake-circle"></div>
+      </div>
+
+      <!-- Feedback Area (used for game over message) -->
+      <div id="feedback"></div>
+
+      <!-- Controls -->
+      <div id="controls">
+        <button id="shuffle-button">Shuffle</button>
+        <button id="deselect-button">Deselect All</button>
+        <button id="submit-button" disabled>Submit</button>
+        <button id="reset-button">Reset Game</button>
+      </div>
+    </div>
+  </main>
+  <!-- Audio Element for Success Jingle -->
+  <audio id="success-audio" src="assets/success-jingle.mp3"></audio>
+  <!-- Include data and scripts -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

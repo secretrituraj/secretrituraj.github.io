@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameBoard = document.getElementById('game-board');
   const keyboard = document.getElementById('keyboard');
   const notificationContainer = document.getElementById('notification-container');
+  const successAudio = document.getElementById('success-audio'); // Added
 
   // Game variables
   let currentRow = 0;
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tile = row.children[currentTile];
     tile.textContent = letter.toUpperCase();
     tile.setAttribute('data-letter', letter);
-    tile.style.borderColor = '#565758';
+    tile.style.borderColor = '#565758'; // Change border color upon adding a letter
     currentTile++;
   }
 
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const tile = row.children[currentTile];
       tile.textContent = '';
       tile.removeAttribute('data-letter');
-      tile.style.borderColor = '#3a3a3c';
+      tile.style.borderColor = '#3a3a3c'; // Reset border color upon deleting a letter
     }
   }
 
@@ -135,59 +136,46 @@ document.addEventListener('DOMContentLoaded', () => {
       letterCount[letter] = (letterCount[letter] || 0) + 1;
     });
 
-    // First pass: check for correct letters
     guessArray.forEach((guessItem, index) => {
       const letter = guessItem.letter;
       const tile = guessItem.tile;
 
       setTimeout(() => {
         tile.classList.add('flip');
-      }, 300 * index);
 
-      if (letter === targetWordArray[index]) {
-        setTimeout(() => {
+        if (letter === targetWordArray[index]) {
           tile.classList.add('correct');
           updateKeyboard(letter, 'correct');
-        }, 300 * index);
-        letterCount[letter]--;
-      }
-    });
-
-    // Second pass: check for present letters
-    guessArray.forEach((guessItem, index) => {
-      const letter = guessItem.letter;
-      const tile = guessItem.tile;
-
-      if (!tile.classList.contains('correct')) {
-        if (targetWordArray.includes(letter) && letterCount[letter] > 0) {
-          setTimeout(() => {
-            tile.classList.add('present');
-            updateKeyboard(letter, 'present');
-          }, 300 * index);
+          letterCount[letter]--;
+        } else if (targetWordArray.includes(letter) && letterCount[letter] > 0) {
+          tile.classList.add('present');
+          updateKeyboard(letter, 'present');
           letterCount[letter]--;
         } else {
-          setTimeout(() => {
-            tile.classList.add('absent');
-            updateKeyboard(letter, 'absent');
-          }, 300 * index);
+          tile.classList.add('absent');
+          updateKeyboard(letter, 'absent');
         }
-      }
-    });
 
-    // Check for win or move to next row
-    setTimeout(() => {
-      if (guess === targetWord) {
-        showNotification('Congratulations! You guessed the word!');
-        isGameOver = true;
-      } else {
-        currentRow++;
-        currentTile = 0;
-        if (currentRow >= 6) {
-          showNotification(`Game Over! The word was "${targetWord.toUpperCase()}".`);
-          isGameOver = true;
+        tile.style.color = '#ffffff';
+
+        if (index === 4) {
+          // After processing the last tile
+          setTimeout(() => {
+            if (guess === targetWord) {
+              // Play success jingle
+              playSuccessJingle();
+              isGameOver = true;
+            } else if (currentRow >= 5) {
+              showNotification(`Game Over! The word was "${targetWord.toUpperCase()}".`);
+              isGameOver = true;
+            } else {
+              currentRow++;
+              currentTile = 0;
+            }
+          }, 500);
         }
-      }
-    }, 1800);
+      }, 500 * index);
+    });
   }
 
   function updateKeyboard(letter, status) {
@@ -209,5 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       notificationContainer.classList.remove('show');
     }, 3000);
+  }
+
+  function playSuccessJingle() {
+    successAudio.currentTime = 0; // Reset audio to the beginning
+    successAudio.play();
   }
 });

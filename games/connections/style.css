@@ -1,0 +1,226 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #F7F7F7;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  background-color: #FFFFFF;
+  padding: 20px 0;
+  border-bottom: 1px solid #E2E2E2;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+}
+
+header p {
+  margin: 5px 0 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+#game-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Found Groups Container */
+#found-groups {
+  margin-bottom: 20px;
+}
+
+.group-block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 10px;
+  border-radius: 8px; /* Rounded corners */
+}
+
+.group-block .word-tile {
+  margin: 0; /* Remove gaps between tiles */
+  border: none; /* Remove border to create a contiguous block */
+  color: #000000; /* Text color black */
+  font-weight: bold;
+}
+
+.group-title {
+  grid-column: span 4; /* Span all columns */
+  padding: 10px 0;
+  text-align: center;
+  color: #000000; /* Text color black */
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+}
+
+/* Word Grid */
+#word-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.word-tile {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.1em;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s, border-color 0.2s;
+  border-radius: 5px; /* Rounded corners */
+  color: #000000; /* Ensure text is black */
+  /* Ensure all boxes are the same size */
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word-tile:hover {
+  background-color: #F0F0F0;
+}
+
+.word-tile.selected {
+  background-color: #CCCCCC; /* Changed from blue to grey */
+  border-color: #CCCCCC;     /* Changed from blue to grey */
+}
+
+.word-tile.selected:hover {
+  background-color: #BBBBBB;
+  border-color: #BBBBBB;
+}
+
+.word-tile.selected,
+.word-tile.selected:hover {
+  color: #000000; /* Text color black */
+}
+
+/* Mistakes Remaining */
+#mistakes-remaining {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.mistake-circle {
+  width: 20px;
+  height: 20px;
+  background-color: #888888; /* Grey color */
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+/* Colors for Groups */
+.group-color-1 {
+  background-color: #FFD700; /* Yellow */
+}
+
+.group-color-2 {
+  background-color: #6AAA64; /* Green */
+}
+
+.group-color-3 {
+  background-color: #4C78A8; /* Blue */
+}
+
+.group-color-4 {
+  background-color: #A64CA6; /* Purple */
+}
+
+/* Adjust text color for readability */
+.group-block .word-tile,
+.group-title {
+  color: #000000; /* Ensure text is black */
+}
+
+/* Feedback */
+#feedback {
+  margin-top: 20px;
+  min-height: 40px;
+  font-size: 1.2em;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+/* Controls */
+#controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#controls button {
+  margin: 5px;
+  background-color: #CCCCCC; /* Base grey color */
+  color: #000000;            /* Text color black */
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.2s, color 0.2s;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+#controls button:hover {
+  background-color: #AAAAAA; /* Slightly darker grey on hover */
+}
+
+#controls button:disabled {
+  background-color: #EEEEEE;
+  cursor: not-allowed;
+}
+
+#submit-button:disabled {
+  background-color: #EEEEEE;
+  cursor: not-allowed;
+}
+
+#submit-button.active {
+  background-color: #000000; /* Black background when active */
+  color: #FFFFFF;            /* White text when active */
+}
+
+#reset-button:disabled {
+  background-color: #EEEEEE;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  #game-container {
+    max-width: 100%;
+  }
+
+  .word-tile {
+    font-size: 1em;
+    padding: 10px;
+    min-height: 50px; /* Adjust for smaller screens */
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  #feedback {
+    font-size: 1.1em;
+  }
+
+  #controls button {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0;
+  }
+}
