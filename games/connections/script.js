@@ -167,7 +167,7 @@ function checkGroup() {
       saveCompletionState();
 
       // Play success jingle if you have one
-      // playSuccessJingle();
+      playSuccessJingle();
 
       return;
     }
@@ -429,7 +429,10 @@ function getPuzzleKey() {
   const index = diffDays % puzzles.length;
   return `puzzle_${index}`;
 }
-
+function playSuccessJingle() {
+  successAudio.currentTime = 0; // Reset audio to the beginning
+  successAudio.play();
+}
 // Initialize the game when the page loads
 if (isPuzzleCompleted()) {
   // If the puzzle is completed, show the completed state

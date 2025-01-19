@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Mini Crossword</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mini Crossword</h1>
+    <div id="timer">0:00</div>
+    <nav>
+        <a href="javascript:window.history.back();" class="home-button">Home</a> <!-- Added Home button -->
+    </nav>
+  </header>
+  <main>
+    <div class="crossword-container">
+      <div id="crossword-grid"></div>
+      <div class="clues-container">
+        <div class="clues-section">
+          <h2>Across</h2>
+          <ul id="across-clues"></ul>
+        </div>
+        <div class="clues-section">
+          <h2>Down</h2>
+          <ul id="down-clues"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="check-button">Check</button>
+      <button id="reveal-button">Reveal</button>
+      <button id="restart-button">Restart</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; Your Crossword Site</p>
+  </footer>
+  <script src="script.js"></script>
+  <audio id="success-audio" src="assets/success-jingle.mp3"></audio>
+</body>
+</html>
