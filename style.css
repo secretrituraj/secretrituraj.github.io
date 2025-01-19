@@ -12,7 +12,7 @@ body {
 }
 
 header {
-  background-color: #333;
+  background-color: #5dc190;
   color: white;
   padding: 20px 0;
   text-align: center;
@@ -66,14 +66,14 @@ main {
   display: inline-block;
   padding: 10px 20px;
   margin-top: 15px;
-  background-color: #007BFF;
+  background-color: #5dc190;
   color: white;
   text-decoration: none;
   border-radius: 4px;
 }
 
 .play-button:hover {
-  background-color: #0056b3;
+  background-color: #5dc190;
 }
 
 /* Footer Styles */

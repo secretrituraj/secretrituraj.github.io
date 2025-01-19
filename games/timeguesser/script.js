@@ -8,6 +8,16 @@ let currentPhotoIndex = 0;
 let currentPhoto;
 let totalScore = 0;
 
+function setVh() {
+    // Calculate 1vh as 1% of the viewport height
+    let vh = window.innerHeight * 0.01;
+    // Set the value in the --vh custom property
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Run the function on initial load and when the window is resized
+window.addEventListener('resize', setVh);
+setVh();
 // Initialize the game
 window.onload = async function() {
     // Load photo data
