@@ -3,32 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Secret Letter</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Include Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Import fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Password Input Section -->
     <div id="password-container">
+        <nav>
+            <a href="javascript:window.history.back();" class="home-button"><i class="fas fa-home"></i> Home</a>
+        </nav>
         <h2>Please enter the date:</h2>
-        <input type="date" id="password-input" placeholder="Select Date">
+        <input type="date" id="password-input">
         <button id="submit-button">Submit</button>
         <p id="error-message"></p>
     </div>
-    
-    <div id="letter-container" style="display: none;">
+
+    <!-- Secret Letter Section -->
+    <div id="letter-container">
+        <nav>
+            <a href="javascript:window.history.back();" class="home-button"><i class="fas fa-home"></i> Home</a>
+        </nav>
         <div id="letter">
             <h1>Dear Reader,</h1>
             <p>
-                *[Your letter content goes here... Write your heartfelt message or any content you'd like to display after the correct password is entered. This is a placeholder text for your convenience. Feel free to replace it with your actual letter.]*
+                <!-- Your heartfelt message goes here -->
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel urna quis lorem facilisis convallis. Sed vitae ante ac purus ullamcorper ullamcorper. Vestibulum in nisi non urna imperdiet aliquam. Nunc mollis purus lacus, ac faucibus elit facilisis sed.
             </p>
+            <!-- Decorative Divider -->
+            <hr class="decorative-divider">
             <p>
                 Sincerely,<br>
-                *[Your Name]*
+                <!-- Your Name -->
+                John Doe
             </p>
+            <!-- Spotify Embed -->
+            <iframe id="spotify-player" src="https://open.spotify.com/embed/playlist/0kOYAwYxRguDPvFIRqySoL" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
     </div>
-    
-    <!-- Spotify Embed -->
-    <iframe style="display: none;" id="spotify-player" src="https://open.spotify.com/embed/playlist/0kOYAwYxRguDPvFIRqySoL?si=e9c8f0801b9f4e56&pt=fea4715cd63413a2e8dc161409f411b7" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    
+
+    <!-- Success Audio -->
+    <audio id="success-audio" src="assets/success-jingle.mp3"></audio>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

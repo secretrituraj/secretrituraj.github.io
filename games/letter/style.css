@@ -1,78 +1,240 @@
-/* General Styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f0f0;
-  background-size: cover;
-  background-position: center;
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Password Container */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    /* Background settings (change the image path to your background image) */
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Navigation Styles */
+nav {
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.home-button {
+    text-decoration: none;
+    font-size: 18px;
+    color: #0a3500;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.home-button i {
+    margin-right: 8px;
+}
+
+.home-button:hover {
+    color: #0056b3;
+}
+
+/* Password Container Styles */
 #password-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
 }
 
 #password-container h2 {
-  margin-bottom: 20px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 #password-input {
-  padding: 10px;
-  font-size: 16px;
-  width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    width: calc(100% - 24px);
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#password-input:focus {
+    border-color: #007BFF;
 }
 
 #submit-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#submit-button:active {
+    transform: translateY(0);
 }
 
 #error-message {
-  color: red;
-  margin-top: 10px;
+    color: red;
+    margin-top: 15px;
+    font-weight: bold;
+    animation: shake 0.3s ease-in-out;
 }
 
-/* Letter Container */
+/* Shake animation for error message */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Letter Container Styles */
 #letter-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#letter-container.show {
+    display: flex;
+    opacity: 1;
 }
 
 #letter {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px;
-  max-width: 600px;
-  margin: 20px;
-  border-radius: 10px;
-  text-align: left;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    max-width: 800px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Decorative flourishes */
+#letter::before,
+#letter::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url('assets/decorative_flourish.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.1;
+}
+
+#letter::before {
+    top: -30px;
+    left: -30px;
+}
+
+#letter::after {
+    bottom: -30px;
+    right: -30px;
 }
 
 #letter h1 {
-  margin-bottom: 20px;
+    font-family: 'Times New Roman', cursive;
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
 }
 
 #letter p {
-  font-size: 18px;
-  line-height: 1.6;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-/* Spotify Player */
+#letter p:last-child {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 40px;
+    color: #333;
+}
+
+/* Decorative Divider */
+.decorative-divider {
+    border: none;
+    height: 2px;
+    background: url('assets/divider_image.png') repeat-x center;
+    margin: 40px 0;
+}
+
+/* Spotify Player Styles */
 #spotify-player {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 300px;
-  height: 80px;
-  border: none;
+    width: 100%;
+    max-width: 350px;
+    height: 80px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 767px) {
+    #letter {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    #letter h1 {
+        font-size: 36px;
+    }
+
+    #letter p {
+        font-size: 16px;
+    }
+
+    #submit-button,
+    #password-input {
+        width: 100%;
+    }
+
+    #spotify-player {
+        max-width: 100%;
+    }
 }

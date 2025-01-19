@@ -6,16 +6,32 @@ document.addEventListener('DOMContentLoaded', function() {
   const passwordContainer = document.getElementById('password-container');
   const letterContainer = document.getElementById('letter-container');
   const spotifyPlayer = document.getElementById('spotify-player');
+  spotifyPlayer.src += "?autoplay=1";
+
   submitButton.addEventListener('click', function() {
+      errorMessage.textContent = ''; // Clear previous error messages
       const enteredPassword = passwordInput.value;
-      if (enteredPassword === correctPassword) {
+
+      if (enteredPassword === '') {
+          errorMessage.textContent = 'Please select a date.';
+          passwordInput.focus();
+      } else if (enteredPassword === correctPassword) {
           passwordContainer.style.display = 'none';
-          letterContainer.style.display = 'block';
-          spotifyPlayer.style.display = 'block';
-          // Optional: Auto-play the Spotify playlist (may be blocked by browsers)
-          spotifyPlayer.src += "?autoplay=1";
+          letterContainer.style.display = 'flex';
+          letterContainer.classList.add('show'); // Add class for fade-in effect
+
+          // Play success audio
+
       } else {
           errorMessage.textContent = 'Incorrect date. Please try again.';
+          passwordInput.focus();
+      }
+  });
+
+  // Allow 'Enter' key to submit
+  passwordInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+          submitButton.click();
       }
   });
 });

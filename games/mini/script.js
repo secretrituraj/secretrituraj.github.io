@@ -324,8 +324,8 @@ if (crossword && crossword.grid) {
   const numCols = crossword.grid[0].length; // Ensure all rows have the same length
 
   // Adjust grid CSS based on actual grid size
-  gridElement.style.gridTemplateColumns = `repeat(${numCols}, 40px)`;
-  gridElement.style.gridTemplateRows = `repeat(${numRows}, 40px)`;
+  gridElement.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+  gridElement.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
 
   crossword.grid.forEach((row, rowIndex) => {
     row.forEach((cell, cellIndex) => {
