@@ -6,12 +6,41 @@ body {
   color: #333;
 }
 
+/* Ensure the page uses the full viewport height */
+html, body {
+  height: 100%;
+}
+
+/* ... existing styles remain unchanged ... */
+
+/* Header */
 header {
+  position: relative; /* Added to position elements inside */
   text-align: center;
   background-color: #FFFFFF;
   padding: 20px 0;
   border-bottom: 1px solid #E2E2E2;
 }
+
+header nav {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+header nav .home-button {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+header nav .home-button:hover {
+  text-decoration: underline;
+}
+
+/* Adjust h1 and p styles if needed */
+/* ... rest of your existing styles ... */
 
 header h1 {
   margin: 0;
@@ -27,7 +56,7 @@ header p {
 main {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 #game-container {
@@ -44,21 +73,21 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-bottom: 10px;
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 8px;
 }
 
 .group-block .word-tile {
-  margin: 0; /* Remove gaps between tiles */
-  border: none; /* Remove border to create a contiguous block */
-  color: #000000; /* Text color black */
+  margin: 0;
+  border: none;
+  color: #000000;
   font-weight: bold;
 }
 
 .group-title {
-  grid-column: span 4; /* Span all columns */
+  grid-column: span 4;
   padding: 10px 0;
   text-align: center;
-  color: #000000; /* Text color black */
+  color: #000000;
   font-weight: bold;
   font-family: 'Georgia', serif;
 }
@@ -76,79 +105,67 @@ main {
   border: 1px solid #E2E2E2;
   padding: 15px;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1em;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.2s, border-color 0.2s;
-  border-radius: 5px; /* Rounded corners */
-  color: #000000; /* Ensure text is black */
-  /* Ensure all boxes are the same size */
+  border-radius: 5px;
+  color: #000000;
   min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.word-tile.selected {
+  background-color: #CCCCCC;
+  border-color: #CCCCCC;
+}
+
 .word-tile:hover {
   background-color: #F0F0F0;
-}
-
-.word-tile.selected {
-  background-color: #CCCCCC; /* Changed from blue to grey */
-  border-color: #CCCCCC;     /* Changed from blue to grey */
-}
-
-.word-tile.selected:hover {
-  background-color: #BBBBBB;
-  border-color: #BBBBBB;
-}
-
-.word-tile.selected,
-.word-tile.selected:hover {
-  color: #000000; /* Text color black */
 }
 
 /* Mistakes Remaining */
 #mistakes-remaining {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center; /* Centered on mobile */
   margin-bottom: 10px;
 }
 
 .mistake-circle {
   width: 20px;
   height: 20px;
-  background-color: #888888; /* Grey color */
+  background-color: #888888;
   border-radius: 50%;
-  margin-left: 5px;
+  margin: 0 5px;
 }
 
 /* Colors for Groups */
 .group-color-1 {
-  background-color: #FFD700; /* Yellow */
+  background-color: #FFD700;
 }
 
 .group-color-2 {
-  background-color: #6AAA64; /* Green */
+  background-color: #6AAA64;
 }
 
 .group-color-3 {
-  background-color: #4C78A8; /* Blue */
+  background-color: #4C78A8;
 }
 
 .group-color-4 {
-  background-color: #A64CA6; /* Purple */
+  background-color: #A64CA6;
 }
 
-/* Adjust text color for readability */
 .group-block .word-tile,
 .group-title {
-  color: #000000; /* Ensure text is black */
+  color: #000000;
 }
 
 /* Feedback */
 #feedback {
-  margin-top: 20px;
+  margin-top: 10px;
   min-height: 40px;
   font-size: 1.2em;
   font-family: 'Georgia', serif;
@@ -162,20 +179,20 @@ main {
 }
 
 #controls button {
-  margin: 5px;
-  background-color: #CCCCCC; /* Base grey color */
-  color: #000000;            /* Text color black */
+  margin: 5px 5px;
+  background-color: #CCCCCC;
+  color: #000000;
   border: none;
   padding: 10px 15px;
   font-size: 1em;
   cursor: pointer;
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 5px;
   transition: background-color 0.2s, color 0.2s;
   font-family: 'Roboto', Arial, sans-serif;
 }
 
 #controls button:hover {
-  background-color: #AAAAAA; /* Slightly darker grey on hover */
+  background-color: #AAAAAA;
 }
 
 #controls button:disabled {
@@ -183,44 +200,68 @@ main {
   cursor: not-allowed;
 }
 
-#submit-button:disabled {
-  background-color: #EEEEEE;
-  cursor: not-allowed;
-}
-
 #submit-button.active {
-  background-color: #000000; /* Black background when active */
-  color: #FFFFFF;            /* White text when active */
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
-#reset-button:disabled {
-  background-color: #EEEEEE;
-  cursor: not-allowed;
-}
-
-/* Responsive Design */
 @media (max-width: 600px) {
-  #game-container {
-    max-width: 100%;
+  header h1 {
+    font-size: 1.8em;
   }
 
   .word-tile {
-    font-size: 1em;
-    padding: 10px;
-    min-height: 50px; /* Adjust for smaller screens */
-  }
-
-  header h1 {
-    font-size: 1.5em;
-  }
-
-  #feedback {
-    font-size: 1.1em;
+    font-size: 0.9em;
+    padding: 8px;
+    min-height: 50px;
   }
 
   #controls button {
     width: 100%;
     box-sizing: border-box;
     margin: 5px 0;
+  }
+
+  /* Word Grid and Found Groups adjustments */
+  #word-grid, .group-block {
+    grid-template-columns: repeat(2, 1fr); /* Show 2 columns on small screens */
+    gap: 5px;
+  }
+
+  .group-title {
+    font-size: 1em;
+  }
+
+  .mistake-circle {
+    width: 15px;
+    height: 15px;
+    margin: 0 3px;
+  }
+}
+
+/* Notification Container */
+#notification-container {
+  margin-bottom: 10px;
+  background-color: #000000; /* Black background */
+  color: #FFFFFF; /* White text */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#notification-container.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 600px) {
+  #notification-container {
+    font-size: 0.9em;
+    padding: 8px 16px;
   }
 }
