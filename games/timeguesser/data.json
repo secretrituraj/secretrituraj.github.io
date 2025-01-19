@@ -1,0 +1,32 @@
+[
+    {
+        "filename": "photo1.jpg",
+        "latitude": 48.8584,
+        "longitude": 2.2945,
+        "date": "2020-08-15"
+    },
+    {
+        "filename": "photo2.jpg",
+        "latitude": 40.6892,
+        "longitude": -74.0445,
+        "date": "2019-05-10"
+    },
+    {
+        "filename": "photo3.jpg",
+        "latitude": 40.6892,
+        "longitude": -74.0445,
+        "date": "2019-05-10"
+    },
+    {
+        "filename": "photo4.jpg",
+        "latitude": 40.6892,
+        "longitude": -74.0445,
+        "date": "2019-05-10"
+    },
+    {
+        "filename": "photo5.jpg",
+        "latitude": 40.6892,
+        "longitude": -74.0445,
+        "date": "2019-05-10"
+    }
+]

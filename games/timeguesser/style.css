@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#photo-container {
+    margin-bottom: 20px;
+}
+
+#photo {
+    max-width: 100%;
+    height: auto;
+}
+
+#controls {
+    width: 100%;
+    max-width: 800px;
+}
+
+#date-picker {
+    margin-top: 10px;
+}
+
+#guess-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#result {
+    text-align: center;
+}
+
+#next-button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+/* Existing styles remain the same */
+
+#final-result {
+    text-align: center;
+}
+
+#final-result h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}

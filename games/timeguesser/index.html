@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TimeGuesser Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <h1>TimeGuesser Game</h1>
+    <div id="game-container">
+        <div id="photo-container">
+            <img id="photo" src="" alt="Guess the location and time">
+        </div>
+        <div id="controls">
+            <div id="map" style="height: 400px;"></div>
+            <div id="date-picker">
+                <label for="date-input">Guess the date:</label>
+                <input type="date" id="date-input" min="2023-01-01">
+            </div>
+            <button id="guess-button">Submit Guess</button>
+        </div>
+    </div>
+    <div id="result" style="display: none;">
+        <h2>Your Result:</h2>
+        <p id="distance-result"></p>
+        <p id="date-result"></p>
+        <p id="total-score"></p>
+        <button id="next-button">Next Photo</button>
+    </div>
+    <div id="final-result" style="display: none;">
+        <h2>Game Over</h2>
+        <p id="final-score"></p>
+    </div>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
