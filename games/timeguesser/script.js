@@ -206,3 +206,40 @@ function formatDistance(distance) {
         return distance.toFixed(2) + ' meters';
     }
 }
+// Inside your initialization functions
+function initMap() {
+    map = L.map('map').setView([51.5, -0.1], 8);
+
+    // Map tiles setup
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Map click event
+    map.on('click', function(e) {
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        selectedLatLng = e.latlng;
+        marker = L.marker(selectedLatLng).addTo(map);
+    });
+}
+
+// In your window.onload or after the map is shown
+function resizeMap() {
+    setTimeout(function() {
+        map.invalidateSize();
+    }, 100);
+}
+
+// Call resizeMap after the map is initialized
+window.onload = async function() {
+    // Existing initialization code
+    await loadPhotoData();
+    selectTodayPhotos();
+    initMap();
+    loadPhoto();
+
+    // Resize the map
+    resizeMap();
+}

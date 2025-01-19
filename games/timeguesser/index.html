@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>TimeGuesser Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Include Meta Tag for Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>TimeGuesser Game</h1>
     <div id="game-container">
         <div id="photo-container">
             <img id="photo" src="" alt="Guess the location and time">
-        </div>
-        <div id="controls">
-            <div id="map" style="height: 400px;"></div>
-            <div id="date-picker">
-                <label for="date-input">Guess the date:</label>
-                <input type="date" id="date-input" min="2023-01-01">
+            <!-- Controls Overlay -->
+            <div id="controls">
+                <div id="date-picker">
+                    <label for="date-input">Guess the date:</label>
+                    <input type="date" id="date-input" min="2023-01-01">
+                </div>
+                <div id="map"></div>
             </div>
+            <!-- Guess Button -->
             <button id="guess-button">Submit Guess</button>
         </div>
     </div>
+    <!-- Result Section -->
     <div id="result" style="display: none;">
         <h2>Your Result:</h2>
         <p id="distance-result"></p>
@@ -29,6 +34,7 @@
         <p id="total-score"></p>
         <button id="next-button">Next Photo</button>
     </div>
+    <!-- Final Result -->
     <div id="final-result" style="display: none;">
         <h2>Game Over</h2>
         <p id="final-score"></p>
