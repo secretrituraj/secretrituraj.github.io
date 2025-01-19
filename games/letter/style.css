@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f0f0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Password Container */
+#password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#password-container h2 {
+  margin-bottom: 20px;
+}
+
+#password-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+}
+
+#submit-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Letter Container */
+#letter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#letter {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  max-width: 600px;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+#letter h1 {
+  margin-bottom: 20px;
+}
+
+#letter p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Spotify Player */
+#spotify-player {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 300px;
+  height: 80px;
+  border: none;
+}
