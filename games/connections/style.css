@@ -224,7 +224,7 @@ main {
 
   /* Word Grid and Found Groups adjustments */
   #word-grid, .group-block {
-    grid-template-columns: repeat(2, 1fr); /* Show 2 columns on small screens */
+    grid-template-columns: repeat(4, 1fr); /* Show 2 columns on small screens */
     gap: 5px;
   }
 
