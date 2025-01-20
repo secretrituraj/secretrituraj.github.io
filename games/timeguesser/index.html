@@ -10,7 +10,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <nav>
@@ -28,10 +27,19 @@
                     <label for="date-input">Guess the date:</label>
                     <input type="date" id="date-input" min="2023-01-01">
                 </div>
-                <div id="map"></div>
+                <div id="map-container">
+                    <div id="map"></div>
+                </div>
             </div>
             <!-- Guess Button -->
             <button id="guess-button">Submit Guess</button>
+        </div>
+    </div>
+    <!-- Expanded Map Modal -->
+    <div id="map-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <div id="expanded-map"></div>
         </div>
     </div>
     <!-- Result Section -->

@@ -1,6 +1,10 @@
+// script.js
+
 // Global variables
-let map;
+let map; // Minimized map
+let expandedMap; // Expanded map
 let marker;
+let expandedMarker;
 let selectedLatLng;
 let photoData = [];
 let todayPhotos = []; // Photos for today's game
@@ -8,6 +12,7 @@ let currentPhotoIndex = 0;
 let currentPhoto;
 let totalScore = 0;
 
+// Set viewport height CSS variable
 function setVh() {
     // Calculate 1vh as 1% of the viewport height
     let vh = window.innerHeight * 0.01;
@@ -18,6 +23,7 @@ function setVh() {
 // Run the function on initial load and when the window is resized
 window.addEventListener('resize', setVh);
 setVh();
+
 // Initialize the game
 window.onload = async function() {
     // Load photo data
@@ -26,17 +32,32 @@ window.onload = async function() {
     // Select today's photos
     selectTodayPhotos();
 
-    // Initialize map
-    initMap();
+    // Initialize maps
+    initMap(); // Minimized map
+    initExpandedMap(); // Expanded map
 
     // Load the first photo
     loadPhoto();
-}
+
+    // Resize maps
+    resizeMaps();
+
+    // Add event listeners
+    setupEventListeners();
+};
 
 // Load photo data from data.json
 async function loadPhotoData() {
-    const response = await fetch('data.json');
-    photoData = await response.json();
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        photoData = await response.json();
+    } catch (error) {
+        console.error('Error fetching data.json:', error);
+        alert('Failed to load photo data. Please check the console for details.');
+    }
 }
 
 // Select 5 photos for today's game based on the date
@@ -69,42 +90,75 @@ function random(seed) {
     return x - Math.floor(x);
 }
 
-// Initialize the map using Leaflet.js
+// Initialize the minimized map
 function initMap() {
-    map = L.map('map').setView([51.5, -0.1], 8); // Centered over South England
+    map = L.map('map', {
+        zoomControl: false,
+        attributionControl: false,
+        dragging: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        touchZoom: false,
+        keyboard: false
+    }).setView([51.5, -0.1], 8); // Centered over South England
+
+    // Set up map tiles (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '' // Empty attribution for minimized map
+    }).addTo(map);
+}
+
+// Initialize the expanded map
+function initExpandedMap() {
+    expandedMap = L.map('expanded-map').setView([51.5, -0.1], 8);
 
     // Set up map tiles (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+    }).addTo(expandedMap);
 
-    // Add click event to the map
-    map.on('click', function(e) {
+    // Add click event to expanded map
+    expandedMap.on('click', function(e) {
+        // Remove existing markers
         if (marker) {
             map.removeLayer(marker);
         }
+        if (expandedMarker) {
+            expandedMap.removeLayer(expandedMarker);
+        }
+        // Add markers to both maps
         selectedLatLng = e.latlng;
         marker = L.marker(selectedLatLng).addTo(map);
+        expandedMarker = L.marker(selectedLatLng).addTo(expandedMap);
     });
 }
 
 // Load the current photo
 function loadPhoto() {
     currentPhoto = todayPhotos[currentPhotoIndex];
-    console.log('Loading photo:', currentPhoto.filename);
     const photoElement = document.getElementById('photo');
     photoElement.src = 'photos/' + currentPhoto.filename;
-    console.log('Photo src set to:', photoElement.src);
 
     // Reset previous selections
     if (marker) {
         map.removeLayer(marker);
         marker = null;
     }
+    if (expandedMarker) {
+        expandedMap.removeLayer(expandedMarker);
+        expandedMarker = null;
+    }
     selectedLatLng = null;
     document.getElementById('date-input').value = '';
     document.getElementById('result').style.display = 'none';
     document.getElementById('guess-button').style.display = 'block';
+
+    // Reset maps view
+    map.setView([51.5, -0.1], 8);
+    expandedMap.setView([51.5, -0.1], 8);
+
+    resizeMaps();
 }
 
 // Handle the guess submission
@@ -165,6 +219,41 @@ document.getElementById('next-button').addEventListener('click', function() {
     }
 });
 
+// Resize maps
+function resizeMaps() {
+    setTimeout(function() {
+        map.invalidateSize();
+        expandedMap.invalidateSize();
+    }, 100);
+}
+
+// Setup event listeners for map expansion and modal
+function setupEventListeners() {
+    const mapContainer = document.getElementById('map-container');
+    const mapModal = document.getElementById('map-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    // Open expanded map when minimized map is clicked
+    mapContainer.addEventListener('click', function() {
+        mapModal.style.display = 'block';
+        resizeMaps();
+    });
+
+    // Close expanded map when close button is clicked
+    closeModal.addEventListener('click', function() {
+        mapModal.style.display = 'none';
+        resizeMaps();
+    });
+
+    // Close expanded map when clicking outside of modal content
+    window.addEventListener('click', function(event) {
+        if (event.target == mapModal) {
+            mapModal.style.display = 'none';
+            resizeMaps();
+        }
+    });
+}
+
 // Calculate distance score
 function calculateDistanceScore(distance) {
     distance = distance / 1000; // Convert to km
@@ -203,53 +292,8 @@ function calculateDateScore(dayDiff) {
 // Display final score
 function displayFinalScore() {
     document.getElementById('game-container').style.display = 'none';
+    document.getElementById('result').style.display = 'none';
     const finalScoreElement = document.getElementById('final-score');
     finalScoreElement.textContent = `Your Final Score: ${totalScore} / 1000`;
     document.getElementById('final-result').style.display = 'block';
-}
-
-// Format distance in km or meters (optional, not used in new scoring)
-function formatDistance(distance) {
-    if (distance >= 1000) {
-        return (distance / 1000).toFixed(2) + ' km';
-    } else {
-        return distance.toFixed(2) + ' meters';
-    }
-}
-// Inside your initialization functions
-function initMap() {
-    map = L.map('map').setView([51.5, -0.1], 8);
-
-    // Map tiles setup
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Map click event
-    map.on('click', function(e) {
-        if (marker) {
-            map.removeLayer(marker);
-        }
-        selectedLatLng = e.latlng;
-        marker = L.marker(selectedLatLng).addTo(map);
-    });
-}
-
-// In your window.onload or after the map is shown
-function resizeMap() {
-    setTimeout(function() {
-        map.invalidateSize();
-    }, 100);
-}
-
-// Call resizeMap after the map is initialized
-window.onload = async function() {
-    // Existing initialization code
-    await loadPhotoData();
-    selectTodayPhotos();
-    initMap();
-    loadPhoto();
-
-    // Resize the map
-    resizeMap();
 }

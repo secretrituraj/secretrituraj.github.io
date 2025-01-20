@@ -1,14 +1,22 @@
 /* General Styles */
-body, html {
+* {
+    box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
+body {
+    overflow: hidden;
+}
+
 #game-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(var(--vh) * 100);
     overflow: hidden;
 }
 
@@ -32,10 +40,11 @@ body, html {
     right: 10px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: flex-end;
+    z-index: 10;
 }
 
-#date-picker, #map {
+#date-picker, #map-container {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 8px;
@@ -43,7 +52,6 @@ body, html {
 
 #date-picker {
     width: 45%;
-    margin-bottom: 10px;
 }
 
 #date-picker label {
@@ -59,11 +67,18 @@ body, html {
     box-sizing: border-box;
 }
 
-#map {
+/* Minimized Map */
+#map-container {
     width: 45%;
+    cursor: pointer;
+}
+
+#map {
+    width: 100%;
     height: 200px;
 }
 
+/* Guess Button */
 #guess-button {
     position: absolute;
     bottom: 10px;
@@ -75,10 +90,56 @@ body, html {
     color: white;
     border: none;
     border-radius: 8px;
+    z-index: 10;
 }
 
 #guess-button:hover {
     background-color: #0056b3;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    height: 90%;
+}
+
+#expanded-map {
+    width: 100%;
+    height: 100%;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#close-modal:hover,
+#close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Result Section */
@@ -100,12 +161,18 @@ body, html {
         align-items: center;
     }
 
-    #date-picker, #map {
+    #date-picker, #map-container {
         width: 90%;
+        margin-bottom: 10px;
     }
 
     #map {
         height: 150px;
+    }
+
+    .modal-content {
+        width: 95%;
+        height: 80%;
     }
 }
 
@@ -113,37 +180,4 @@ body, html {
     #map {
         height: 100px;
     }
-}
-/* General Styles */
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-body {
-    overflow: hidden;
-}
-
-#game-container {
-    position: relative;
-    width: 100%;
-    height: calc(var(--vh) * 100); /* Use the custom variable */
-    overflow: hidden;
-}
-
-#photo-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-#photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
