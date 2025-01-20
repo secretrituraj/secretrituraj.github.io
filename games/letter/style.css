@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     /* Background settings (change the image path to your background image) */
     background-image: url('assets/background.jpg');
@@ -237,4 +237,36 @@ nav {
     #spotify-player {
         max-width: 100%;
     }
+}
+/* Player Controls */
+#player-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#play-button {
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #1DB954; /* Spotify Green */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#play-button:hover {
+    background-color: #1ed760;
+    transform: translateY(-2px);
+}
+
+#play-button:active {
+    transform: translateY(0);
+}
+
+#play-button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
 }

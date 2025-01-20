@@ -1,13 +1,9 @@
 /* General Styles */
-body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-}
-
-/* Reset box-sizing */
-*, *::before, *::after {
-  box-sizing: border-box;
+  height: 100%;
 }
 
 .page-container {
@@ -17,8 +13,8 @@ body {
 }
 
 header {
-  background-color: #04530b;
-  color: black;            /* Changed to black for better contrast */
+  background-color: #eaff00;
+  color: black;            /* Ensured better contrast */
   padding: 20px 0;
   text-align: center;
 }
@@ -31,33 +27,33 @@ header h1 {
 main {
   flex: 1;
   padding: 20px;
+  display: flex;           /* Added to center the content */
+  justify-content: center;
 }
 
 .games-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  max-width: 1200px;       /* Limits the width on larger screens */
+  width: 100%;
 }
 
 .game-card {
   background-color: #f5f5f5;
   border-radius: 8px;
-  width: calc(25% - 40px);
-  min-width: 250px;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */   /* Removed to allow natural alignment */
-  text-align: center;           /* Center text horizontally */
+  text-align: center;
 }
 
 .game-card img {
-  width: 100px;           /* Fixed width */
-  height: 100px;          /* Fixed height */
-  object-fit: contain;    /* Maintain aspect ratio */
-  margin: 0 auto;         /* Center image horizontally */
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .game-card h2 {
@@ -66,23 +62,23 @@ main {
 }
 
 .game-card p {
-  flex-grow: 1;           /* Makes description take available space */
-  margin-bottom: 20px;    /* Consistent spacing */
+  flex-grow: 1;
+  margin-bottom: 20px;
 }
 
 .play-button {
   display: inline-block;
   padding: 10px 20px;
-  margin-top: auto;        /* Pushes the button to the bottom */
+  margin-top: auto;
   background-color: #028e19;
-  color: white;            /* Changed to white for better contrast */
+  color: white;
   text-decoration: none;
   border-radius: 4px;
 }
 
 .play-button:hover {
   background-color: #105301;
-  color: white;            /* Ensure text remains white on hover */
+  color: white;
 }
 
 /* Footer Styles */
@@ -91,18 +87,19 @@ footer {
   color: white;
   padding: 10px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-  .game-card {
-    width: calc(33.33% - 40px);
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .game-card {
-    width: calc(50% - 40px);
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
@@ -111,10 +108,8 @@ footer {
     font-size: 1.5em;
   }
 
-  .game-card {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+  main {
+    padding: 10px;
   }
 
   .games-grid {
