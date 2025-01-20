@@ -324,3 +324,19 @@ function displayFinalScore() {
     finalScoreElement.textContent = `Your Final Score: ${totalScore} / 1000`;
     document.getElementById('final-result').style.display = 'block';
 }
+// Handle "Play Again" button
+// Handle "Play Again" button
+document.getElementById('play-again-button').addEventListener('click', function() {
+    // Reset game variables
+    currentPhotoIndex = 0;
+    totalScore = 0;
+    todayPhotos = []; // Re-select today's photos
+    selectTodayPhotos();
+
+    // Reset the game interface
+    document.getElementById('final-result').style.display = 'none';
+    document.getElementById('final-result-overlay').style.display = 'none';
+    document.getElementById('game-container').style.display = 'block';
+
+    loadPhoto();
+});
