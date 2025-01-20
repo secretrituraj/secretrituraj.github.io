@@ -138,9 +138,17 @@ function initExpandedMap() {
     }, 100);
 }
 
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const dateObj = new Date(dateString);
+    return dateObj.toLocaleDateString(undefined, options);
+}
+
 // Load the current photo
 function loadPhoto() {
     currentPhoto = todayPhotos[currentPhotoIndex];
+    const locationName = currentPhoto.locationName || 'Unknown Location';
+    document.getElementById('actual-location').textContent = `Actual Location: ${locationName}`;
     const photoElement = document.getElementById('photo');
     photoElement.src = 'photos/' + currentPhoto.filename;
 
@@ -163,54 +171,47 @@ function loadPhoto() {
     if (expandedMap) {
         expandedMap.setView([51.5, -0.1], 8);
     }
-
+        // Reset result display
+    document.getElementById('actual-location').textContent = '';
+    document.getElementById('actual-date').textContent = '';
     resizeMaps();
 }
 
+// Handle the guess submission
 document.getElementById('guess-button').addEventListener('click', function() {
-    console.log('Guess button clicked');
-
     // Get user's selected date
     const guessedDate = document.getElementById('date-input').value;
-    console.log('Guessed Date:', guessedDate);
-
     if (!selectedLatLng || !guessedDate) {
         alert('Please select a location on the map and choose a date.');
         return;
     }
-    console.log('Selected LatLng:', selectedLatLng);
 
     // Calculate distance between guessed location and actual location
     const guessedLatLng = selectedLatLng;
     const actualLatLng = L.latLng(currentPhoto.latitude, currentPhoto.longitude);
-    console.log('Actual LatLng:', actualLatLng);
     const distance = guessedLatLng.distanceTo(actualLatLng); // in meters
-    console.log('Distance:', distance);
 
     // Calculate date difference
     const guessedTime = new Date(guessedDate).getTime();
     const actualTime = new Date(currentPhoto.date).getTime();
-    console.log('Guessed Time:', guessedTime, 'Actual Time:', actualTime);
     const timeDiff = Math.abs(guessedTime - actualTime);
     const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); // in days
-    console.log('Day Difference:', dayDiff);
 
     // Calculate scores
     const distanceScore = calculateDistanceScore(distance);
     const dateScore = calculateDateScore(dayDiff);
     const roundScore = distanceScore + dateScore;
-    console.log('Distance Score:', distanceScore, 'Date Score:', dateScore, 'Round Score:', roundScore);
 
     totalScore += roundScore;
-    console.log('Total Score:', totalScore);
 
     // Display results
+    document.getElementById('actual-location').textContent = `Actual Location: ${currentPhoto.locationName}`;
+    document.getElementById('actual-date').textContent = `Actual Date: ${formatDate(currentPhoto.date)}`;
     document.getElementById('distance-result').textContent = `Distance Score: ${distanceScore} points`;
     document.getElementById('date-result').textContent = `Date Score: ${dateScore} points`;
     document.getElementById('total-score').textContent = `Total Score: ${totalScore} / ${(currentPhotoIndex + 1) * 200}`;
 
     document.getElementById('result').style.display = 'block';
-    console.log('Result section displayed');
     document.getElementById('guess-button').style.display = 'none';
 
     // Optional: Show the actual location on the map
@@ -282,39 +283,43 @@ function setupEventListeners() {
 }
 
 // Calculate distance score
+// Calculate distance score (Linear)
 function calculateDistanceScore(distance) {
     distance = distance / 1000; // Convert to km
+    const maxDistance = 100; // km
+    const maxScore = 100;
+
     let score = 0;
-    if (distance <= 10) {
-        score = 100;
-    } else if (distance <= 25) {
-        score = 80;
-    } else if (distance <= 50) {
-        score = 60;
-    } else if (distance <= 100) {
-        score = 40;
+
+    if (distance >= maxDistance) {
+        score = 0;
     } else {
-        score = 20;
+        score = ((maxDistance - distance) / maxDistance) * maxScore;
+        score = Math.round(score); // Round to nearest integer
     }
+
     return score;
 }
 
-// Calculate date score
+// Calculate date score (Linear)
 function calculateDateScore(dayDiff) {
+    const maxDayDiff = 60; // days
+    const maxScore = 100;
+
     let score = 0;
-    if (dayDiff <= 2) {
-        score = 100;
-    } else if (dayDiff <= 7) {
-        score = 80;
-    } else if (dayDiff <= 14) {
-        score = 60;
-    } else if (dayDiff <= 30) {
-        score = 40;
+
+    if (dayDiff >= maxDayDiff) {
+        score = 0;
     } else {
-        score = 20;
+        score = ((maxDayDiff - dayDiff) / maxDayDiff) * maxScore;
+        score = Math.round(score); // Round to nearest integer
     }
+
     return score;
 }
+
+
+
 
 // Display final score
 function displayFinalScore() {

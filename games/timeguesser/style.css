@@ -165,9 +165,16 @@ body {
     z-index: 100;
     display: none; /* Ensure it's hidden by default */
 }
-
+#result p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
 #result h2 {
     margin-top: 0;
+}
+#result #actual-location,
+#result #actual-date {
+    font-weight: bold;
 }
 
 #next-button {
