@@ -32,14 +32,13 @@ window.onload = async function() {
     // Select today's photos
     selectTodayPhotos();
 
-    // Initialize maps
-    initMap(); // Minimized map
-    initExpandedMap(); // Expanded map
+    // Initialize minimized map
+    initMap();
 
     // Load the first photo
     loadPhoto();
 
-    // Resize maps
+    // Resize minimized map
     resizeMaps();
 
     // Add event listeners
@@ -109,7 +108,7 @@ function initMap() {
     }).addTo(map);
 }
 
-// Initialize the expanded map
+// Initialize the expanded map (Initialized when modal is opened)
 function initExpandedMap() {
     expandedMap = L.map('expanded-map').setView([51.5, -0.1], 8);
 
@@ -132,6 +131,11 @@ function initExpandedMap() {
         marker = L.marker(selectedLatLng).addTo(map);
         expandedMarker = L.marker(selectedLatLng).addTo(expandedMap);
     });
+
+    // Ensure the map is resized correctly
+    setTimeout(function() {
+        expandedMap.invalidateSize();
+    }, 100);
 }
 
 // Load the current photo
@@ -156,7 +160,9 @@ function loadPhoto() {
 
     // Reset maps view
     map.setView([51.5, -0.1], 8);
-    expandedMap.setView([51.5, -0.1], 8);
+    if (expandedMap) {
+        expandedMap.setView([51.5, -0.1], 8);
+    }
 
     resizeMaps();
 }
@@ -223,7 +229,9 @@ document.getElementById('next-button').addEventListener('click', function() {
 function resizeMaps() {
     setTimeout(function() {
         map.invalidateSize();
-        expandedMap.invalidateSize();
+        if (expandedMap) {
+            expandedMap.invalidateSize();
+        }
     }, 100);
 }
 
@@ -232,24 +240,32 @@ function setupEventListeners() {
     const mapContainer = document.getElementById('map-container');
     const mapModal = document.getElementById('map-modal');
     const closeModal = document.getElementById('close-modal');
+    let expandedMapInitialized = false; // Flag to check if expandedMap is initialized
 
     // Open expanded map when minimized map is clicked
     mapContainer.addEventListener('click', function() {
         mapModal.style.display = 'block';
-        resizeMaps();
+
+        if (!expandedMapInitialized) {
+            initExpandedMap(); // Initialize expanded map
+            expandedMapInitialized = true; // Set flag to true
+        } else {
+            // If already initialized, make sure to resize it
+            setTimeout(function() {
+                expandedMap.invalidateSize();
+            }, 100);
+        }
     });
 
     // Close expanded map when close button is clicked
     closeModal.addEventListener('click', function() {
         mapModal.style.display = 'none';
-        resizeMaps();
     });
 
     // Close expanded map when clicking outside of modal content
     window.addEventListener('click', function(event) {
         if (event.target == mapModal) {
             mapModal.style.display = 'none';
-            resizeMaps();
         }
     });
 }
