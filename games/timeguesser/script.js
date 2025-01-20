@@ -167,32 +167,42 @@ function loadPhoto() {
     resizeMaps();
 }
 
-// Handle the guess submission
 document.getElementById('guess-button').addEventListener('click', function() {
+    console.log('Guess button clicked');
+
     // Get user's selected date
     const guessedDate = document.getElementById('date-input').value;
+    console.log('Guessed Date:', guessedDate);
+
     if (!selectedLatLng || !guessedDate) {
         alert('Please select a location on the map and choose a date.');
         return;
     }
+    console.log('Selected LatLng:', selectedLatLng);
 
     // Calculate distance between guessed location and actual location
     const guessedLatLng = selectedLatLng;
     const actualLatLng = L.latLng(currentPhoto.latitude, currentPhoto.longitude);
+    console.log('Actual LatLng:', actualLatLng);
     const distance = guessedLatLng.distanceTo(actualLatLng); // in meters
+    console.log('Distance:', distance);
 
     // Calculate date difference
     const guessedTime = new Date(guessedDate).getTime();
     const actualTime = new Date(currentPhoto.date).getTime();
+    console.log('Guessed Time:', guessedTime, 'Actual Time:', actualTime);
     const timeDiff = Math.abs(guessedTime - actualTime);
     const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); // in days
+    console.log('Day Difference:', dayDiff);
 
     // Calculate scores
     const distanceScore = calculateDistanceScore(distance);
     const dateScore = calculateDateScore(dayDiff);
     const roundScore = distanceScore + dateScore;
+    console.log('Distance Score:', distanceScore, 'Date Score:', dateScore, 'Round Score:', roundScore);
 
     totalScore += roundScore;
+    console.log('Total Score:', totalScore);
 
     // Display results
     document.getElementById('distance-result').textContent = `Distance Score: ${distanceScore} points`;
@@ -200,6 +210,7 @@ document.getElementById('guess-button').addEventListener('click', function() {
     document.getElementById('total-score').textContent = `Total Score: ${totalScore} / ${(currentPhotoIndex + 1) * 200}`;
 
     document.getElementById('result').style.display = 'block';
+    console.log('Result section displayed');
     document.getElementById('guess-button').style.display = 'none';
 
     // Optional: Show the actual location on the map
