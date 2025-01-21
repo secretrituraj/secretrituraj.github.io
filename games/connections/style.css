@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: 'Roboto', Arial, sans-serif;
-  background-color: #F7F7F7;
-  color: #333;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* Ensure the page uses the full viewport height */
@@ -17,9 +17,8 @@ html, body {
 header {
   position: relative; /* Added to position elements inside */
   text-align: center;
-  background-color: #FFFFFF;
+  background-color: #f4aecd;
   padding: 20px 0;
-  border-bottom: 1px solid #E2E2E2;
 }
 
 header nav {
@@ -29,7 +28,7 @@ header nav {
 }
 
 header nav .home-button {
-  color: #000000;
+  color: #ba3672  ;
   text-decoration: none;
   font-weight: bold;
   font-size: 1em;
@@ -37,6 +36,8 @@ header nav .home-button {
 
 header nav .home-button:hover {
   text-decoration: underline;
+  color: #ba3672;
+
 }
 
 /* Adjust h1 and p styles if needed */
@@ -136,7 +137,7 @@ main {
 .mistake-circle {
   width: 20px;
   height: 20px;
-  background-color: #888888;
+  background-color: #f4aecd;
   border-radius: 50%;
   margin: 0 5px;
 }
@@ -180,7 +181,7 @@ main {
 
 #controls button {
   margin: 5px 5px;
-  background-color: #CCCCCC;
+  background-color: #d66d9d;
   color: #000000;
   border: none;
   padding: 10px 15px;
@@ -192,16 +193,16 @@ main {
 }
 
 #controls button:hover {
-  background-color: #AAAAAA;
+  background-color: #f4aecd;
 }
 
 #controls button:disabled {
-  background-color: #EEEEEE;
+  background-color: #f4aecd;
   cursor: not-allowed;
 }
 
 #submit-button.active {
-  background-color: #000000;
+  background-color: #d66d9d;
   color: #FFFFFF;
 }
 

@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(180deg, #121212 0%, #1f1f1f 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #dedede 100%);
   color: #ffffff;
 }
 
@@ -12,7 +12,7 @@ body {
 header {
   position: relative; /* Added to position elements inside */
   padding: 20px;
-  background-color: #1f1f1f;
+  background-color: #f4aecd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -23,7 +23,7 @@ header nav {
 }
 
 header nav .home-button {
-  color: #ffffff;
+  color: #ba3672;
   text-decoration: none;
   font-weight: bold;
   font-size: 1em;
@@ -31,15 +31,18 @@ header nav .home-button {
 
 header nav .home-button:hover {
   text-decoration: underline;
+  color: #ba3672
 }
 
 /* Adjust h1 styles if needed */
 /* ... rest of your existing styles ... */
 header h1 {
   margin: 0;
-  font-size: 2.5em;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
+  font-size: 2em;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
 }
 
 nav {
@@ -83,8 +86,8 @@ main {
 .tile {
   width: 70px;
   height: 70px;
-  border: 2px solid #3a3a3c;
-  background-color: #1f1f1f;
+  border: 2px solid #ffffff;
+  background-color: #f4aecd;
   display: flex;
   justify-content: center;
   align-items: center;

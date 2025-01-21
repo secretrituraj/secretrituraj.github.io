@@ -31,7 +31,7 @@ nav {
 .home-button {
     text-decoration: none;
     font-size: 18px;
-    color: #0a3500;
+    color: #f4aecd;
     font-weight: bold;
     margin-left: 20px;
     transition: color 0.3s;
@@ -42,7 +42,7 @@ nav {
 }
 
 .home-button:hover {
-    color: #0056b3;
+    color: #ba3672;
 }
 
 /* Password Container Styles */
@@ -79,7 +79,7 @@ nav {
 }
 
 #password-input:focus {
-    border-color: #007BFF;
+    border-color: #f4aecd;
 }
 
 #submit-button {
@@ -87,7 +87,7 @@ nav {
     padding: 12px 30px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007BFF;
+    background-color: #f4aecd;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -96,7 +96,7 @@ nav {
 }
 
 #submit-button:hover {
-    background-color: #0056b3;
+    background-color: #ba3672;
     transform: translateY(-2px);
 }
 
@@ -105,7 +105,7 @@ nav {
 }
 
 #error-message {
-    color: red;
+    color: blue;
     margin-top: 15px;
     font-weight: bold;
     animation: shake 0.3s ease-in-out;
@@ -127,7 +127,7 @@ nav {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    background: #ffe1ee; /* Darker overlay */
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -144,7 +144,7 @@ nav {
     margin: 20px;
     border-radius: 10px;
     text-align: left;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Times New Roman';
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     position: relative;
 }
@@ -249,7 +249,7 @@ nav {
     padding: 12px 30px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #1DB954; /* Spotify Green */
+    background-color: #f4aecd; /* Spotify Green */
     color: #fff;
     border: none;
     border-radius: 50px;
@@ -258,7 +258,7 @@ nav {
 }
 
 #play-button:hover {
-    background-color: #1ed760;
+    background-color: #ba3672;
     transform: translateY(-2px);
 }
 

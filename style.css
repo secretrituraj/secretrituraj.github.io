@@ -13,7 +13,7 @@ body, html {
 }
 
 header {
-  background-color: #eaff00;
+  background-color: #ffd6e8;
   color: black;            /* Ensured better contrast */
   padding: 20px 0;
   text-align: center;
@@ -40,9 +40,10 @@ main {
 }
 
 .game-card {
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  padding: 20px;
+  background-color: #ffffff;
+  border-color: #000000;
+  border-radius: 6px;
+  padding: 18px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -70,21 +71,21 @@ main {
   display: inline-block;
   padding: 10px 20px;
   margin-top: auto;
-  background-color: #028e19;
-  color: white;
+  background-color: #f4aecd;
+  color: #000000;
   text-decoration: none;
   border-radius: 4px;
 }
 
 .play-button:hover {
-  background-color: #105301;
-  color: white;
+  background-color: #ba3672;
+  color: #ffffff;
 }
 
 /* Footer Styles */
 footer {
-  background-color: #333;
-  color: white;
+  background-color: #ffd6e8;
+  color: rgb(0, 0, 0);
   padding: 10px;
   text-align: center;
   flex-shrink: 0;
