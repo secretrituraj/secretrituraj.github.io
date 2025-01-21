@@ -7,15 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Import fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
-    <!-- Meta viewport for responsive design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Include the Spotify Web Playback SDK -->
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
 </head>
 <body>
     <!-- Password Input Section -->
@@ -26,7 +22,7 @@
         <h2>Please enter the date:</h2>
         <input type="date" id="password-input">
         <button id="submit-button">Submit</button>
-        <p id="error-message" role="alert"></p>
+        <p id="error-message"></p>
     </div>
 
     <!-- Secret Letter Section -->
@@ -47,12 +43,11 @@
                 <!-- Your Name -->
                 John Doe
             </p>
-            <!-- Spotify Player Controls -->
-            <div id="player-controls">
-                <button id="play-button">Play Music</button>
-            </div>
+            <!-- Spotify Embed -->
+            <iframe id="spotify-player" src="https://open.spotify.com/embed/playlist/0kOYAwYxRguDPvFIRqySoL" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
     </div>
+
 
     <!-- JavaScript -->
     <script src="script.js"></script>

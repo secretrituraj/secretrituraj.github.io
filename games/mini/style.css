@@ -22,6 +22,13 @@ body {
     letter-spacing: 2px;
   }
   
+  header nav .home-button {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+  }
+  
   #timer {
     font-size: 16px;
     color: #666;
