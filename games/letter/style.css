@@ -41,6 +41,13 @@ nav {
     margin-right: 8px;
 }
 
+nav .home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+  
+
 .home-button:hover {
     color: #ba3672;
 }

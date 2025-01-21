@@ -10,293 +10,47 @@ const crosswords = [
     {
       // Crossword 1
       grid: [
-        [{ letter: '', number: 1 }, { letter: '', number: 2 }, { letter: '', number: 3 }, { black: true }, { letter: '', number: 4 }],
-        [{ letter: '', number: 5 }, { black: true }, { letter: '', number: 6 }, { letter: '', number: 7 }, { letter: '', number: 8 }],
-        [{ letter: '', number: 9 }, { letter: '', number: 10 }, { black: true }, { letter: '', number: 11 }, { letter: '', number: 12 }],
-        [{ black: true }, { letter: '', number: 13 }, { letter: '', number: 14 }, { black: true }, { letter: '', number: 15 }],
-        [{ letter: '', number: 16 }, { letter: '', number: 17 }, { letter: '', number: 18 }, { letter: '', number: 19 }, { black: true }],
+        [{ black: true }, { letter: '', number: 1 }, { letter: '', number: 2 }, { letter: '', number: 3 },  { letter: '', number: 4 }],
+        [{ black: true }, { letter: '', number: 5 }, { letter: '', number: 6 }, { letter: '', number: 7 }, { letter: '', number: 8 }],
+        [{ letter: '', number: 9 }, { letter: '', number: 10 },  { letter: '', number: 11 }, { letter: '', number: 12 }, { letter: '', number: 13 }],
+        [{ black: true }, { letter: '', number: 14 }, { letter: '', number: 15 },  { letter: '', number: 16 }, { black: true }],
+        [{ black: true }, { black: true }, { black: true }, { letter: '', number: 17 }, { letter: '', number: 18 }],
       ],
       clues: {
         across: [
-          { number: 1, clue: 'Opposite of night', cells: [{ row: 0, col: 0 }, { row: 0, col: 1 }, { row: 0, col: 2 }] },
-          { number: 4, clue: 'Animal that meows', cells: [{ row: 0, col: 4 }] },
-          { number: 5, clue: 'Male child', cells: [{ row: 1, col: 0 }] },
-          { number: 6, clue: 'Frozen water', cells: [{ row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 }] },
-          { number: 9, clue: 'First meal of the day', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }] },
-          { number: 11, clue: 'Not heavy', cells: [{ row: 2, col: 3 }, { row: 2, col: 4 }] },
-          { number: 13, clue: 'Baby\'s bed', cells: [{ row: 3, col: 1 }, { row: 3, col: 2 }] },
-          { number: 16, clue: 'Greeting word', cells: [{ row: 4, col: 0 }, { row: 4, col: 1 }, { row: 4, col: 2 }, { row: 4, col: 3 }] },
+          { number: 1, clue: 'Slang for self pleasure', cells: [{ row: 0, col: 1 }, { row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 }] },
+          { number: 5, clue: 'Proud _ (song)', cells: [{ row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 }] },
+          { number: 9, clue: '_ Diem', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 2, col: 4 }] },
+          { number: 14, clue: 'American airport security or Oxford entrance exam', cells: [{ row: 3, col: 1 }, { row: 3, col: 2}, { row: 3, col: 3}] },
+          { number: 17, clue: 'What my mum used to work in', cells: [{ row: 4, col: 3 }, { row: 4, col: 4 }] },
         ],
         down: [
-          { number: 1, clue: 'Feline animal', cells: [{ row: 0, col: 0 }, { row: 1, col: 0 }, { row: 2, col: 0 }] },
-          { number: 2, clue: 'Expression of pain', cells: [{ row: 0, col: 1 }, { row: 2, col: 1 }] },
-          { number: 3, clue: 'To sit or lie down', cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }] },
-          { number: 6, clue: 'Frozen water', cells: [{ row: 1, col: 2 }, { row: 2, col: 2 }] },
-          { number: 7, clue: 'Opposite of yes', cells: [{ row: 1, col: 3 }, { row: 2, col: 3 }] },
-          { number: 8, clue: 'Negative vote', cells: [{ row: 1, col: 4 }, { row: 2, col: 4 }] },
-          { number: 12, clue: 'Third planet from the sun', cells: [{ row: 2, col: 4 }, { row: 3, col: 4 }] },
-          { number: 14, clue: 'Consumed food', cells: [{ row: 3, col: 2 }, { row: 4, col: 2 }] },
-          { number: 17, clue: 'Container for tea', cells: [{ row: 4, col: 1 }, { row: 3, col: 1 }] },
+          { number: 1, clue: 'ENI____IC ????(mysterious)', cells: [{ row: 0, col: 1 }, { row: 1 , col: 1 }, { row: 2, col: 1 },  { row: 3, col: 1 }] },
+          { number: 2, clue: 'What a cox directs', cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }, { row: 2, col: 2 },  { row: 3, col: 2}] },
+          { number: 3, clue: "Oprah's real name", cells: [{ row: 0, col: 3 }, { row: 1, col: 3 }, { row: 2, col: 3 }, { row: 3, col: 3}, { row: 4, col: 3},] },
+          { number: 4, clue: "The day we wasted £50 on Simmons' Bar", cells: [{ row: 0, col: 4 }, { row: 1, col: 4}, { row: 2, col: 4}] },
+          { number: 9, clue: '__ u l8r', cells: [{ row: 2, col: 0 }] },
+          { number: 18, clue: '_eel badman ', cells: [{ row: 4, col: 4 }] },
         ],
       },
       answers: {
         across: {
-          1: 'DAY',
-          4: 'CAT',
-          5: 'SON',
-          6: 'ICE',
-          9: 'BREAKFAST',
-          11: 'LIGHT',
-          13: 'CRIB',
-          16: 'HELLO',
+          1: 'GOON',
+          5: 'MARY',
+          9: 'CARPE',
+          14: 'TSA',
+          17: 'HR',
         },
         down: {
-          1: 'DOG',
-          2: 'AH',
-          3: 'YET',
-          6: 'ICE',
-          7: 'NO',
-          8: 'NO',
-          12: 'EARTH',
-          14: 'ATE',
-          17: 'POT',
+          1: 'GMAT',
+          2: 'OARS',
+          3: 'ORPAH',
+          4: 'NYE',
+          9: 'C',
+          18: 'R',
         },
       },
-    },
-    {
-      // Crossword 2
-      grid: [
-        [{ letter: '', number: 1 }, { letter: '', number: 2 }, { letter: '', number: 3 }, { letter: '', number: 4 }, { letter: '', number: 5 }],
-        [{ black: true }, { letter: '', number: 6 }, { black: true }, { letter: '', number: 7 }, { black: true }],
-        [{ letter: '', number: 8 }, { letter: '', number: 9 }, { letter: '', number: 10 }, { letter: '', number: 11 }, { letter: '', number: 12 }],
-        [{ black: true }, { letter: '', number: 13 }, { black: true }, { letter: '', number: 14 }, { black: true }],
-        [{ letter: '', number: 15 }, { letter: '', number: 16 }, { letter: '', number: 17 }, { letter: '', number: 18 }, { letter: '', number: 19 }],
-      ],
-      clues: {
-        across: [
-          { number: 1, clue: 'Opposite of old', cells: [{ row: 0, col: 0 }, { row: 0, col: 1 }, { row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 }] },
-          { number: 6, clue: 'Long fish', cells: [{ row: 1, col: 1 }] },
-          { number: 7, clue: 'Cooking vessel', cells: [{ row: 1, col: 3 }] },
-          { number: 8, clue: 'Large body of water', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 2, col: 4 }] },
-          { number: 13, clue: 'Not soft', cells: [{ row: 3, col: 1 }] },
-          { number: 14, clue: 'Distant', cells: [{ row: 3, col: 3 }] },
-          { number: 15, clue: 'Expression of surprise', cells: [{ row: 4, col: 0 }, { row: 4, col: 1 }, { row: 4, col: 2 }, { row: 4, col: 3 }, { row: 4, col: 4 }] },
-        ],
-        down: [
-          { number: 1, clue: 'Large wild cat', cells: [{ row: 0, col: 0 }, { row: 2, col: 0 }, { row: 4, col: 0 }] },
-          { number: 2, clue: 'Preposition indicating direction', cells: [{ row: 0, col: 1 }, { row: 2, col: 1 }, { row: 4, col: 1 }] },
-          { number: 3, clue: 'Equal', cells: [{ row: 0, col: 2 }, { row: 2, col: 2 }, { row: 4, col: 2 }] },
-          { number: 4, clue: 'Consume', cells: [{ row: 0, col: 3 }, { row: 2, col: 3 }, { row: 4, col: 3 }] },
-          { number: 5, clue: 'Electrical unit', cells: [{ row: 0, col: 4 }, { row: 2, col: 4 }, { row: 4, col: 4 }] },
-          { number: 6, clue: 'Long fish', cells: [{ row: 1, col: 1 }, { row: 2, col: 1 }] },
-          { number: 8, clue: 'Large body of water', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 2, col: 4 }] },
-          { number: 13, clue: 'Not soft', cells: [{ row: 3, col: 1 }, { row: 4, col: 1 }] },
-          { number: 14, clue: 'Distant', cells: [{ row: 3, col: 3 }, { row: 4, col: 3 }] },
-        ],
-      },
-      answers: {
-        across: {
-          1: 'NEWLY',
-          6: 'EEL',
-          7: 'POT',
-          8: 'OCEAN',
-          13: 'HARD',
-          14: 'FAR',
-          15: 'OOPS',
-        },
-        down: {
-          1: 'NOO',
-          2: 'ECO',
-          3: 'WED',
-          4: 'LAP',
-          5: 'YEN',
-          6: 'EEL',
-          8: 'OCEAN',
-          13: 'HA',
-          14: 'FA',
-        },
-      },
-    },
-    {
-      // Crossword 3
-      grid: [
-        [{ letter: '', number: 1 }, { letter: '', number: 2 }, { black: true }, { letter: '', number: 3 }, { letter: '', number: 4 }],
-        [{ letter: '', number: 5 }, { letter: '', number: 6 }, { letter: '', number: 7 }, { letter: '', number: 8 }, { letter: '', number: 9 }],
-        [{ black: true }, { letter: '', number: 10 }, { black: true }, { letter: '', number: 11 }, { black: true }],
-        [{ letter: '', number: 12 }, { letter: '', number: 13 }, { letter: '', number: 14 }, { letter: '', number: 15 }, { letter: '', number: 16 }],
-        [{ letter: '', number: 17 }, { letter: '', number: 18 }, { black: true }, { letter: '', number: 19 }, { letter: '', number: 20 }],
-      ],
-      clues: {
-        across: [
-          { number: 1, clue: 'First number', cells: [{ row: 0, col: 0 }, { row: 0, col: 1 }] },
-          { number: 3, clue: 'An adult male human', cells: [{ row: 0, col: 3 }, { row: 0, col: 4 }] },
-          { number: 5, clue: 'Companion', cells: [{ row: 1, col: 0 }, { row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 }] },
-          { number: 12, clue: 'Close by', cells: [{ row: 3, col: 0 }, { row: 3, col: 1 }, { row: 3, col: 2 }, { row: 3, col: 3 }, { row: 3, col: 4 }] },
-          { number: 17, clue: 'Negative word', cells: [{ row: 4, col: 0 }, { row: 4, col: 1 }] },
-          { number: 19, clue: 'Walking stick', cells: [{ row: 4, col: 3 }, { row: 4, col: 4 }] },
-        ],
-        down: [
-          { number: 1, clue: 'Rain protection', cells: [{ row: 0, col: 0 }, { row: 1, col: 0 }] },
-          { number: 2, clue: 'At that time', cells: [{ row: 0, col: 1 }, { row: 1, col: 1 }] },
-          { number: 6, clue: 'Tree fluid', cells: [{ row: 1, col: 1 }, { row: 3, col: 1 }] },
-          { number: 7, clue: 'Third person pronoun', cells: [{ row: 1, col: 2 }, { row: 3, col: 2 }] },
-          { number: 8, clue: 'Compass point', cells: [{ row: 1, col: 3 }, { row: 3, col: 3 }] },
-          { number: 9, clue: 'Expression of surprise', cells: [{ row: 1, col: 4 }, { row: 3, col: 4 }] },
-          { number: 10, clue: 'Consumed', cells: [{ row: 2, col: 1 }, { row: 3, col: 1 }] },
-          { number: 11, clue: 'Electrical unit', cells: [{ row: 2, col: 3 }, { row: 3, col: 3 }] },
-          { number: 14, clue: 'Not old', cells: [{ row: 3, col: 2 }, { row: 4, col: 2 }] },
-          { number: 15, clue: 'Article', cells: [{ row: 3, col: 3 }, { row: 4, col: 3 }] },
-        ],
-      },
-      answers: {
-        across: {
-          1: 'ONE',
-          3: 'MAN',
-          5: 'FRIEND',
-          12: 'NEARBY',
-          17: 'NO',
-          19: 'CANE',
-        },
-        down: {
-          1: 'UM',
-          2: 'ON',
-          6: 'SAP',
-          7: 'HE',
-          8: 'NE',
-          9: 'AH',
-          10: 'ATE',
-          11: 'AN',
-          14: 'NEW',
-          15: 'AN',
-        },
-      },
-    },
-    {
-      // Crossword 4
-      grid: [
-        [{ letter: '', number: 1 }, { black: true }, { letter: '', number: 2 }, { letter: '', number: 3 }, { letter: '', number: 4 }],
-        [{ letter: '', number: 5 }, { black: true }, { letter: '', number: 6 }, { black: true }, { letter: '', number: 7 }],
-        [{ letter: '', number: 8 }, { letter: '', number: 9 }, { letter: '', number: 10 }, { letter: '', number: 11 }, { letter: '', number: 12 }],
-        [{ letter: '', number: 13 }, { black: true }, { letter: '', number: 14 }, { black: true }, { letter: '', number: 15 }],
-        [{ letter: '', number: 16 }, { black: true }, { letter: '', number: 17 }, { letter: '', number: 18 }, { letter: '', number: 19 }],
-      ],
-      clues: {
-        across: [
-          { number: 1, clue: 'Consume food', cells: [{ row: 0, col: 0 }] },
-          { number: 2, clue: 'Short sleep', cells: [{ row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 }] },
-          { number: 5, clue: 'Negative reply', cells: [{ row: 1, col: 0 }] },
-          { number: 6, clue: 'Animal doctor', cells: [{ row: 1, col: 2 }] },
-          { number: 7, clue: 'Blood carrier', cells: [{ row: 1, col: 4 }] },
-          { number: 8, clue: 'Period of history', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }] },
-          { number: 13, clue: 'Harmful substance', cells: [{ row: 3, col: 0 }] },
-          { number: 14, clue: 'Corded fabric', cells: [{ row: 3, col: 2 }] },
-          { number: 15, clue: 'Device for flying', cells: [{ row: 3, col: 4 }] },
-          { number: 16, clue: 'Anxious', cells: [{ row: 4, col: 0 }] },
-          { number: 17, clue: 'A color', cells: [{ row: 4, col: 2 }, { row: 4, col: 3 }, { row: 4, col: 4 }] },
-        ],
-        down: [
-          { number: 1, clue: 'Consume food', cells: [{ row: 0, col: 0 }, { row: 1, col: 0 }] },
-          { number: 2, clue: 'Noisy insect', cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }] },
-          { number: 3, clue: 'Pause', cells: [{ row: 0, col: 3 }, { row: 2, col: 3 }, { row: 4, col: 3 }] },
-          { number: 4, clue: 'Chicken sound', cells: [{ row: 0, col: 4 }, { row: 1, col: 4 }] },
-          { number: 8, clue: 'Period of history', cells: [{ row: 2, col: 0 }, { row: 3, col: 0 }, { row: 4, col: 0 }] },
-          { number: 9, clue: 'Small particle', cells: [{ row: 2, col: 1 }, { row: 4, col: 1 }] },
-          { number: 10, clue: 'Exist', cells: [{ row: 2, col: 2 }, { row: 3, col: 2 }, { row: 4, col: 2 }] },
-          { number: 11, clue: 'Frozen rain', cells: [{ row: 2, col: 3 }] },
-          { number: 12, clue: 'Perceive with eyes', cells: [{ row: 2, col: 4 }, { row: 4, col: 4 }] },
-        ],
-      },
-      answers: {
-        across: {
-          1: 'EAT',
-          2: 'NAP',
-          5: 'NO',
-          6: 'VET',
-          7: 'VEIN',
-          8: 'ERA',
-          13: 'POISON',
-          14: 'CORD',
-          15: 'PLANE',
-          16: 'TENSE',
-          17: 'RED',
-        },
-        down: {
-          1: 'EN',
-          2: 'ANT',
-          3: 'PAUSE',
-          4: 'NE',
-          8: 'ERA',
-          9: 'RA',
-          10: 'ARE',
-          11: 'ICE',
-          12: 'SEE',
-        },
-      },
-    },
-    {
-      // Crossword 5
-      grid: [
-        [{ letter: '', number: 1 }, { letter: '', number: 2 }, { black: true }, { letter: '', number: 3 }, { letter: '', number: 4 }],
-        [{ letter: '', number: 5 }, { black: true }, { letter: '', number: 6 }, { black: true }, { letter: '', number: 7 }],
-        [{ letter: '', number: 8 }, { letter: '', number: 9 }, { letter: '', number: 10 }, { letter: '', number: 11 }, { letter: '', number: 12 }],
-        [{ letter: '', number: 13 }, { black: true }, { letter: '', number: 14 }, { black: true }, { letter: '', number: 15 }],
-        [{ letter: '', number: 16 }, { letter: '', number: 17 }, { black: true }, { letter: '', number: 18 }, { letter: '', number: 19 }],
-      ],
-      clues: {
-        across: [
-          { number: 1, clue: 'Frozen water', cells: [{ row: 0, col: 0 }, { row: 0, col: 1 }] },
-          { number: 3, clue: 'Not down', cells: [{ row: 0, col: 3 }, { row: 0, col: 4 }] },
-          { number: 5, clue: 'Zero', cells: [{ row: 1, col: 0 }] },
-          { number: 6, clue: 'Writing instrument', cells: [{ row: 1, col: 2 }] },
-          { number: 7, clue: 'Consume', cells: [{ row: 1, col: 4 }] },
-          { number: 8, clue: 'Mature', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }] },
-          { number: 13, clue: 'Not me', cells: [{ row: 3, col: 0 }] },
-          { number: 14, clue: 'Loud noise', cells: [{ row: 3, col: 2 }] },
-          { number: 15, clue: 'Central part', cells: [{ row: 3, col: 4 }] },
-          { number: 16, clue: 'Article', cells: [{ row: 4, col: 0 }] },
-          { number: 17, clue: 'Exist', cells: [{ row: 4, col: 1 }] },
-          { number: 18, clue: 'Over there', cells: [{ row: 4, col: 3 }, { row: 4, col: 4 }] },
-        ],
-        down: [
-          { number: 1, clue: 'Frozen water', cells: [{ row: 0, col: 0 }, { row: 1, col: 0 }] },
-          { number: 2, clue: 'Close by', cells: [{ row: 0, col: 1 }, { row: 2, col: 1 }, { row: 4, col: 1 }] },
-          { number: 3, clue: 'Not down', cells: [{ row: 0, col: 3 }, { row: 1, col: 3 }] },
-          { number: 4, clue: 'Number after three', cells: [{ row: 0, col: 4 }, { row: 1, col: 4 }] },
-          { number: 6, clue: 'Writing instrument', cells: [{ row: 1, col: 2 }, { row: 2, col: 2 }] },
-          { number: 8, clue: 'Mature', cells: [{ row: 2, col: 0 }, { row: 3, col: 0 }, { row: 4, col: 0 }] },
-          { number: 10, clue: 'Third person singular', cells: [{ row: 2, col: 2 }, { row: 3, col: 2 }] },
-          { number: 11, clue: 'Conjunction', cells: [{ row: 2, col: 3 }, { row: 4, col: 3 }] },
-          { number: 12, clue: 'Letter after A', cells: [{ row: 2, col: 4 }, { row: 3, col: 4 }] },
-        ],
-      },
-      answers: {
-        across: {
-          1: 'ICE',
-          3: 'UP',
-          5: 'O',
-          6: 'PEN',
-          7: 'EAT',
-          8: 'OLD',
-          13: 'NOT',
-          14: 'BOOM',
-          15: 'CORE',
-          16: 'A',
-          17: 'BE',
-          18: 'THERE',
-        },
-        down: {
-          1: 'IN',
-          2: 'CAT',
-          3: 'UP',
-          4: 'FIVE',
-          6: 'PEN',
-          8: 'ONE',
-          10: 'HE',
-          11: 'OR',
-          12: 'B',
-        },
-      },
-    },
+    }
   ];
   
   // Function to get today's crossword index
@@ -311,7 +65,8 @@ function getTodayCrosswordIndex() {
   
   // Get today's crossword
 const todayCrosswordIndex = getTodayCrosswordIndex();
-const crossword = crosswords[todayCrosswordIndex];
+//const crossword = crosswords[todayCrosswordIndex]; (this would be the code but i'm testing with just one crossword)
+const crossword = crosswords[0]
   
 
   
@@ -452,7 +207,6 @@ if (crossword && crossword.grid) {
     }
   }
   
-  // Auto-advance input focus and keyboard navigation
   gridElement.addEventListener('input', (e) => {
     if (e.target.tagName === 'INPUT') {
       const value = e.target.value.toUpperCase();
@@ -463,6 +217,9 @@ if (crossword && crossword.grid) {
   
       // Move focus to the next cell in the current word
       moveToNextCell(row, col);
+  
+      // Check if the crossword is completed and correct
+      autoCheckCompletion();
     }
   });
   
@@ -613,62 +370,113 @@ if (crossword && crossword.grid) {
     return prevCell;
   }
   
-  // Function to check answers
-  function checkAnswers() {
-    let allCorrect = true;
-  
-    // Check across answers
-    crossword.clues.across.forEach((clue) => {
-      const answer = crossword.answers.across[clue.number];
-      const cells = clue.cells.map(({ row, col }) => {
-        return document.querySelector(`input[data-row='${row}'][data-col='${col}']`);
-      });
-      const userAnswer = cells.map(cell => cell.value.toUpperCase() || ' ').join('');
-  
-      if (userAnswer !== answer) {
-        allCorrect = false;
-        // Optionally, highlight incorrect cells
-        cells.forEach(cell => {
-          cell.classList.add('incorrect');
-        });
-      } else {
-        // Remove incorrect highlight if the answer is now correct
-        cells.forEach(cell => {
-          cell.classList.remove('incorrect');
-        });
+  function autoCheckCompletion() {
+    // Check if all inputs are filled
+    const inputs = document.querySelectorAll('#crossword-grid input');
+    let allFilled = true;
+    inputs.forEach(input => {
+      if (input.value.trim() === '') {
+        allFilled = false;
       }
     });
   
-    // Check down answers
-    crossword.clues.down.forEach((clue) => {
-      const answer = crossword.answers.down[clue.number];
-      const cells = clue.cells.map(({ row, col }) => {
-        return document.querySelector(`input[data-row='${row}'][data-col='${col}']`);
-      });
-      const userAnswer = cells.map(cell => cell.value.toUpperCase() || ' ').join('');
+    if (allFilled) {
+      // All cells are filled, now check if the answers are correct
+      const allCorrect = checkAnswers(true); // Silent checking
   
-      if (userAnswer !== answer) {
-        allCorrect = false;
-        // Optionally, highlight incorrect cells
-        cells.forEach(cell => {
-          cell.classList.add('incorrect');
-        });
-      } else {
-        // Remove incorrect highlight if the answer is now correct
-        cells.forEach(cell => {
-          cell.classList.remove('incorrect');
-        });
+      if (allCorrect) {
+        // Puzzle is completed and correct
+        handleSuccess(); // Stop the timer
       }
-    });
-  
-    if (allCorrect) {
-      alert('Congratulations! You solved today\'s crossword.');
-      playSuccessJingle();
-      clearInterval(timerInterval); // Stop the timer
-    } else {
-      alert('Some answers are incorrect. Keep trying!');
     }
   }
+
+  function checkAnswers(isAutoCheck = false) {
+    let allCorrect = true;
+
+    // Map to keep track of cell correctness: key is 'row-col', value is true (correct) or false (incorrect)
+    let cellStatus = {};
+
+    // Initialize cellStatus with true for all cells
+    document.querySelectorAll('.cell input').forEach(cell => {
+        const row = cell.dataset.row;
+        const col = cell.dataset.col;
+        const key = `${row}-${col}`;
+        cellStatus[key] = true; // Assume correct initially
+    });
+
+    // Function to mark a cell as incorrect
+    function markCellIncorrect(cell) {
+        const row = cell.dataset.row;
+        const col = cell.dataset.col;
+        const key = `${row}-${col}`;
+        cellStatus[key] = false; // Mark as incorrect
+    }
+
+    // Check across answers
+    crossword.clues.across.forEach((clue) => {
+        const answer = crossword.answers.across[clue.number];
+        const cells = clue.cells.map(({ row, col }) => {
+            return document.querySelector(`input[data-row='${row}'][data-col='${col}']`);
+        });
+
+        answer.split('').forEach((correctLetter, index) => {
+            const cell = cells[index];
+            const userLetter = (cell.value || ' ').toUpperCase().trim();
+
+            if (userLetter !== correctLetter) {
+                allCorrect = false;
+                markCellIncorrect(cell);
+            }
+            // We don't unmark cells here because they might be incorrect in another clue
+        });
+    });
+
+    // Check down answers
+    crossword.clues.down.forEach((clue) => {
+        const answer = crossword.answers.down[clue.number];
+        const cells = clue.cells.map(({ row, col }) => {
+            return document.querySelector(`input[data-row='${row}'][data-col='${col}']`);
+        });
+
+        answer.split('').forEach((correctLetter, index) => {
+            const cell = cells[index];
+            const userLetter = (cell.value || ' ').toUpperCase().trim();
+
+            if (userLetter !== correctLetter) {
+                allCorrect = false;
+                markCellIncorrect(cell);
+            }
+            // We don't unmark cells here because they might be incorrect in another clue
+        });
+    });
+
+    // Now update the class based on cellStatus
+    document.querySelectorAll('.cell input').forEach(cell => {
+        const row = cell.dataset.row;
+        const col = cell.dataset.col;
+        const key = `${row}-${col}`;
+
+        if (cellStatus[key]) {
+            // Cell is correct
+            cell.classList.remove('incorrect');
+        } else {
+            // Cell is incorrect
+            cell.classList.add('incorrect');
+        }
+    });
+
+    // When called from the 'Check' button, display messages
+    if (!isAutoCheck) {
+        if (allCorrect) {
+          handleSuccess(); // Stop the timer
+        } else {
+            alert('Some answers are incorrect. Keep trying!');
+        }
+    }
+
+    return allCorrect;
+}
   
   // Event listeners for action buttons
   document.getElementById('check-button').addEventListener('click', checkAnswers);
@@ -722,9 +530,9 @@ if (crossword && crossword.grid) {
     startTimer();
   }
   
-  // Timer functionality
   let startTime = Date.now();
   let timerInterval;
+  let elapsedTime = 0; // in seconds
   
   function startTimer() {
     updateTimer(); // Update immediately
@@ -732,16 +540,33 @@ if (crossword && crossword.grid) {
   }
   
   function updateTimer() {
-    const elapsed = Math.floor((Date.now() - startTime) / 1000);
-    const minutes = Math.floor(elapsed / 60);
-    const seconds = elapsed % 60;
+    elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    const minutes = Math.floor(elapsedTime / 60);
+    const seconds = elapsedTime % 60;
   
     const timerElement = document.getElementById('timer');
     timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
+  
+  function formatTime(totalSeconds) {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+  
+    if (minutes > 0) {
+      return `${minutes} minute${minutes !== 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}`;
+    } else {
+      return `${seconds} second${seconds !== 1 ? 's' : ''}`;
+    }
+  }
   function playSuccessJingle() {
     successAudio.currentTime = 0; // Reset audio to the beginning
     successAudio.play();
+  }
+  function handleSuccess() {
+    const timeMessage = formatTime(elapsedTime);
+    alert(`Congratulations! You solved today's crossword in ${timeMessage}.`);
+    playSuccessJingle();
+    clearInterval(timerInterval); // Stop the timer
   }
   // Start the timer when the page loads
   window.addEventListener('load', () => {
