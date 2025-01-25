@@ -23,19 +23,29 @@ const puzzle = getPuzzleOfTheDay();
 // Clone the words array to manipulate
 let wordsArray = [];
 
-// Initialize the game
+function renderFoundGroups() {
+  foundGroupsContainer.innerHTML = ''; // Clear existing groups
+
+  // Get all unique group IDs that have been found
+  const foundGroupIds = [...new Set(wordsArray.filter(word => word.found).map(word => word.groupId))];
+
+  foundGroupIds.forEach(groupId => {
+    addGroupToFoundGroups(groupId);
+  });
+}
+
 function initGame() {
-  // Attempt to load saved game state
+  // Load or initialize game state
   const savedState = loadGameState();
 
   if (savedState) {
     // Load saved state
-    selectedWords = [];
     remainingMistakes = savedState.remainingMistakes;
     foundGroups = savedState.foundGroups;
     gameCompleted = savedState.gameCompleted;
     wordsArray = savedState.wordsArray;
     feedback.innerHTML = savedState.feedback;
+    selectedWords = savedState.selectedWords.map(wordText => wordsArray.find(w => w.text === wordText));
   } else {
     // Start new game
     selectedWords = [];
@@ -48,39 +58,43 @@ function initGame() {
     wordsArray.sort(() => 0.5 - Math.random());
   }
 
+  // Clear any residual selections
+  selectedWords = [];
+  updateSubmitButtonState();
+
   // Clear containers
   wordGrid.innerHTML = '';
   foundGroupsContainer.innerHTML = '';
   updateMistakesDisplay();
-  updateSubmitButtonState();
 
-  // Create word tiles
+  // Create word tiles for words not yet found
   wordsArray.forEach((word) => {
-    const tile = document.createElement('div');
-    tile.classList.add('word-tile');
-    tile.textContent = word.text;
-    tile.dataset.word = word.text;
-
-    if (word.found) {
-      // Word was already found
-    } else {
+    if (!word.found) {
+      const tile = document.createElement('div');
+      tile.classList.add('word-tile');
+      tile.textContent = word.text;
+      tile.dataset.word = word.text;
       tile.addEventListener('click', selectWordHandler);
-    }
 
-    if (word.found) {
-      // Add to found groups
-      addGroupToFoundGroups(word.groupId);
-    } else if (!gameCompleted) {
-      // Add to word grid (only if game is not completed)
+      // Re-select tile if it was selected before
+      if (selectedWords.includes(word)) {
+        tile.classList.add('selected');
+      }
+
       wordGrid.appendChild(tile);
     }
   });
+  console.log('Re-rendering word grid with words:', wordsArray.filter(w => !w.found).map(w => w.text));
+
+  // Render found groups
+  renderFoundGroups();
 
   if (gameCompleted) {
     disableAllTiles();
-    showCorrectGroups(); // Display all groups with words
+    showCorrectGroups();
   }
 }
+
 
 function selectWordHandler(e) {
   const tile = e.currentTarget;
@@ -149,16 +163,27 @@ function checkGroup() {
   if (allSameGroup) {
     // Correct group
     const groupId = groupIds[0];
+    console.log('Correct group found:', groupIds[0]);
 
+    // Mark words as found
     selectedWords.forEach(word => {
       word.found = true;
     });
 
-    // Move found group to the top
-    addGroupToFoundGroups(groupId);
-
     foundGroups++;
 
+    // Reset selection
+    selectedWords = [];
+    updateSubmitButtonState();
+    console.log('Words marked as found:', selectedWords.map(w => w.text));
+
+    // Save game state
+    saveGameState();
+
+    // Refresh the game UI
+    initGame();
+
+  
     if (foundGroups === 4) {
       // Game Completed
       disableAllTiles();
@@ -304,12 +329,15 @@ function getPuzzleOfTheDay() {
 
 // Add group to found groups container
 function addGroupToFoundGroups(groupId) {
-  const groupWords = puzzle.words.filter(word => word.groupId === parseInt(groupId));
+  const groupWords = puzzle.words.filter(word => word.groupId === parseInt(groupId, 10));
+
+  // Create group title
   const groupTitle = document.createElement('div');
   groupTitle.classList.add('group-title');
   groupTitle.classList.add(`group-color-${groupId}`);
   groupTitle.textContent = puzzle.themes[groupId];
 
+  // Create group block
   const groupBlock = document.createElement('div');
   groupBlock.classList.add('group-block');
   groupBlock.classList.add(`group-color-${groupId}`);
@@ -385,6 +413,7 @@ function saveGameState() {
     gameCompleted: gameCompleted,
     wordsArray: wordsArray,
     feedback: feedback.innerHTML,
+    selectedWords: selectedWords.map(word => word.text), // Save selected words by their text
   };
   localStorage.setItem(`connectionsGameState_${getPuzzleKey()}`, JSON.stringify(gameState));
 }
@@ -392,9 +421,11 @@ function saveGameState() {
 function loadGameState() {
   const savedState = JSON.parse(localStorage.getItem(`connectionsGameState_${getPuzzleKey()}`));
   if (savedState && isSamePuzzle(savedState.wordsArray)) {
+    // Restore selected words
+    selectedWords = savedState.selectedWords.map(wordText => wordsArray.find(w => w.text === wordText));
+    // ... rest of the saved state assignments ...
     return savedState;
   } else {
-    // Clear any old game state if puzzle has changed
     clearGameState();
     return null;
   }
