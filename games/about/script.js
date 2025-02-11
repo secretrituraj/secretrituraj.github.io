@@ -12,6 +12,7 @@ function checkTimeAndDisplayBoxes() {
     const box1 = document.getElementById('box1');
     const box2 = document.getElementById('box2');
     const box3 = document.getElementById('box3');
+    const box4 = document.getElementById('box3');
 
     // Reset all boxes at midnight
     if (hours === 0 && minutes === 0) {
@@ -19,15 +20,17 @@ function checkTimeAndDisplayBoxes() {
         box1.style.display = 'none';
         box2.style.display = 'none';
         box3.style.display = 'none';
+        box4.style.display = 'none';
+
     }
 
     // Display Box 1 at or after 11:00 AM
-    if (hours > 11 || (hours === 11 && minutes >= 0)) {
+    if (hours > 10 || (hours === 10 && minutes >= 30)) {
         box1.style.display = 'block';
     }
 
     // Display Box 2 at or after 1:30 PM
-    if (hours > 13 || (hours === 13 && minutes >= 30)) {
+    if (hours > 13 || (hours === 13 && minutes >= 0)) {
         box2.style.display = 'block';
     }
 
@@ -35,6 +38,11 @@ function checkTimeAndDisplayBoxes() {
     if (hours > 17 || (hours === 17 && minutes >= 0)) {
         box3.style.display = 'block';
     }
+    
+    if (hours > 20 || (hours === 20 && minutes >= 0)) {
+        box4.style.display = 'block';
+    }
+
 }
 
 // Initial check when the page loads

@@ -50,6 +50,50 @@ const crosswords = [
           18: 'R',
         },
       },
+    },
+    {
+      // Crossword 1
+      grid: [
+        [{ black: true }, { letter: '', number: 1 }, { letter: '', number: 2 }, { letter: '', number: 3 },  { letter: '', number: 4 }],
+        [{ black: true }, { letter: '', number: 5 }, { letter: '', number: 6 }, { letter: '', number: 7 }, { letter: '', number: 8 }],
+        [{ letter: '', number: 9 }, { letter: '', number: 10 },  { letter: '', number: 11 }, { letter: '', number: 12 }, { letter: '', number: 13 }],
+        [{ black: true }, { letter: '', number: 14 }, { letter: '', number: 15 },  { letter: '', number: 16 }, { black: true }],
+        [{ black: true }, { black: true }, { black: true }, { letter: '', number: 17 }, { letter: '', number: 18 }],
+      ],
+      clues: {
+        across: [
+          { number: 1, clue: 'Slang for self pleasure', cells: [{ row: 0, col: 1 }, { row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 }] },
+          { number: 5, clue: 'Proud _ (song)', cells: [{ row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 }] },
+          { number: 9, clue: '_ Diem', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 2, col: 4 }] },
+          { number: 14, clue: 'American airport security or Oxford entrance exam', cells: [{ row: 3, col: 1 }, { row: 3, col: 2}, { row: 3, col: 3}] },
+          { number: 17, clue: 'What my mum used to work in', cells: [{ row: 4, col: 3 }, { row: 4, col: 4 }] },
+        ],
+        down: [
+          { number: 1, clue: 'ENI____IC ????(mysterious)', cells: [{ row: 0, col: 1 }, { row: 1 , col: 1 }, { row: 2, col: 1 },  { row: 3, col: 1 }] },
+          { number: 2, clue: 'What a cox directs', cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }, { row: 2, col: 2 },  { row: 3, col: 2}] },
+          { number: 3, clue: "Oprah's real name", cells: [{ row: 0, col: 3 }, { row: 1, col: 3 }, { row: 2, col: 3 }, { row: 3, col: 3}, { row: 4, col: 3},] },
+          { number: 4, clue: "The day we wasted £50 on Simmons' Bar", cells: [{ row: 0, col: 4 }, { row: 1, col: 4}, { row: 2, col: 4}] },
+          { number: 9, clue: '__ u l8r', cells: [{ row: 2, col: 0 }] },
+          { number: 18, clue: '_eel badman ', cells: [{ row: 4, col: 4 }] },
+        ],
+      },
+      answers: {
+        across: {
+          1: 'GOON',
+          5: 'MARY',
+          9: 'CARPE',
+          14: 'TSA',
+          17: 'HR',
+        },
+        down: {
+          1: 'GMAT',
+          2: 'OARS',
+          3: 'ORPAH',
+          4: 'NYE',
+          9: 'C',
+          18: 'R',
+        },
+      },
     }
   ];
   

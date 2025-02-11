@@ -4,7 +4,7 @@ const puzzles = [
       // Puzzle 1
       themes: {
         1: 'My Friends',
-        2: 'Desserts',
+        2: 'Traitors Characters',
         3: "Director's first names",
         4: 'Last 3 letters of Spices'
       },
@@ -13,10 +13,10 @@ const puzzles = [
         { text: 'Anthony', groupId: 1 },
         { text: 'Abhay', groupId: 1 },
         { text: 'Nugith', groupId: 1 },
-        { text: 'Nougat', groupId: 2 },
-        { text: 'Baklava', groupId: 2 },
-        { text: 'Trifle', groupId: 2 },
-        { text: 'Macaron', groupId: 2 },
+        { text: 'Minah', groupId: 2 },
+        { text: 'Charlotte', groupId: 2 },
+        { text: 'Anna', groupId: 2 },
+        { text: 'Linda', groupId: 2 },
         { text: 'Luca', groupId: 3 },
         { text: 'Pedro', groupId: 3 },
         { text: 'Paul Thomas', groupId: 3 },
@@ -30,28 +30,28 @@ const puzzles = [
     {
       // Puzzle 2
       themes: {
-        1: 'Planets',
-        2: 'Metal Bands',
-        3: 'Programming Languages',
-        4: 'Shakespeare Plays'
+        1: 'Opposite',
+        2: 'Types of Crisis',
+        3: 'Youtubers you like',
+        4: 'Country codes youve visited 2023/4'
       },
       words: [
-        { text: 'Mercury', groupId: 1 },
-        { text: 'Venus', groupId: 1 },
-        { text: 'Earth', groupId: 1 },
-        { text: 'Mars', groupId: 1 },
-        { text: 'Metallica', groupId: 2 },
-        { text: 'Iron Maiden', groupId: 2 },
-        { text: 'Black Sabbath', groupId: 2 },
-        { text: 'Megadeth', groupId: 2 },
-        { text: 'Java', groupId: 3 },
-        { text: 'Python', groupId: 3 },
-        { text: 'Ruby', groupId: 3 },
-        { text: 'C++', groupId: 3 },
-        { text: 'Hamlet', groupId: 4 },
-        { text: 'Macbeth', groupId: 4 },
-        { text: 'Othello', groupId: 4 },
-        { text: 'King Lear', groupId: 4 }
+        { text: 'Against', groupId: 1 },
+        { text: 'Opposing', groupId: 1 },
+        { text: 'Inverse', groupId: 1 },
+        { text: 'Versus', groupId: 1 },
+        { text: 'Midlife', groupId: 2 },
+        { text: 'Missile', groupId: 2 },
+        { text: 'Existential', groupId: 2 },
+        { text: 'Of Confidence', groupId: 2 },
+        { text: 'Contra', groupId: 3 },
+        { text: 'FD', groupId: 3 },
+        { text: 'Verit', groupId: 3 },
+        { text: 'Medlife', groupId: 3 },
+        { text: 'IN', groupId: 4 },
+        { text: 'GB', groupId: 4 },
+        { text: 'HU', groupId: 4 },
+        { text: 'ES', groupId: 4 }
       ]
     },
     // Add more puzzles as needed
