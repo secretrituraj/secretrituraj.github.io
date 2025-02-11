@@ -3,28 +3,28 @@ const puzzles = [
     {
       // Puzzle 1
       themes: {
-        1: 'Fruits',
-        2: 'Colors',
-        3: 'Animals',
-        4: 'Vehicles'
+        1: 'My Friends',
+        2: 'Desserts',
+        3: "Director's first names",
+        4: 'Last 3 letters of Spices'
       },
       words: [
-        { text: 'Apple', groupId: 1 },
-        { text: 'Banana', groupId: 1 },
-        { text: 'Cherry', groupId: 1 },
-        { text: 'Orange', groupId: 1 },
-        { text: 'Red', groupId: 2 },
-        { text: 'Blue', groupId: 2 },
-        { text: 'Green', groupId: 2 },
-        { text: 'Yellow', groupId: 2 },
-        { text: 'Dog', groupId: 3 },
-        { text: 'Cat', groupId: 3 },
-        { text: 'Bird', groupId: 3 },
-        { text: 'Fish', groupId: 3 },
-        { text: 'Car', groupId: 4 },
-        { text: 'Bike', groupId: 4 },
-        { text: 'Boat', groupId: 4 },
-        { text: 'Plane', groupId: 4 }
+        { text: 'Luka', groupId: 1 },
+        { text: 'Anthony', groupId: 1 },
+        { text: 'Abhay', groupId: 1 },
+        { text: 'Nugith', groupId: 1 },
+        { text: 'Nougat', groupId: 2 },
+        { text: 'Baklava', groupId: 2 },
+        { text: 'Trifle', groupId: 2 },
+        { text: 'Macaron', groupId: 2 },
+        { text: 'Luca', groupId: 3 },
+        { text: 'Pedro', groupId: 3 },
+        { text: 'Paul Thomas', groupId: 3 },
+        { text: 'Denis', groupId: 3 },
+        { text: 'Meg', groupId: 4 },
+        { text: 'Mon', groupId: 4 },
+        { text: 'Min', groupId: 4 },
+        { text: 'Ric', groupId: 4 }
       ]
     },
     {
