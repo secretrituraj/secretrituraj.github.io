@@ -54,5 +54,4 @@ const puzzles = [
         { text: 'ES', groupId: 4 }
       ]
     },
-    // Add more puzzles as needed
   ];
