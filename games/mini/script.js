@@ -110,7 +110,7 @@ function getTodayCrosswordIndex() {
   // Get today's crossword
 const todayCrosswordIndex = getTodayCrosswordIndex();
 // const crossword = crosswords[todayCrosswordIndex]
-// const crossword = crosswords[1]; 
+ const crossword = crosswords[1]; 
 
 
   
