@@ -323,7 +323,9 @@ function getPuzzleOfTheDay() {
   const today = new Date();
   const diffTime = Math.abs(today - startDate);
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  const index = diffDays % puzzles.length;
+  
+  //const index = diffDays % puzzles.length;
+  const index = 2
   return puzzles[index];
 }
 
