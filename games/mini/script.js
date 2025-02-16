@@ -52,46 +52,45 @@ const crosswords = [
       },
     },
     {
-      // Crossword 1
+      // Crossword 2
       grid: [
-        [{ black: true }, { letter: '', number: 1 }, { letter: '', number: 2 }, { letter: '', number: 3 },  { letter: '', number: 4 }],
-        [{ black: true }, { letter: '', number: 5 }, { letter: '', number: 6 }, { letter: '', number: 7 }, { letter: '', number: 8 }],
-        [{ letter: '', number: 9 }, { letter: '', number: 10 },  { letter: '', number: 11 }, { letter: '', number: 12 }, { letter: '', number: 13 }],
-        [{ black: true }, { letter: '', number: 14 }, { letter: '', number: 15 },  { letter: '', number: 16 }, { black: true }],
-        [{ black: true }, { black: true }, { black: true }, { letter: '', number: 17 }, { letter: '', number: 18 }],
+        [{ letter: '', number: 1 }, { letter: '', number: 2 }, { letter: '', number: 3 }, { letter: '', number: 4 }, { letter: '', number: 5 }],
+        [{ letter: '', number: 6 }, { letter: '', number: 7 }, { letter: '', number: 8 }, { letter: '', number: 9 }, { letter: '', number: 10 }],
+        [{ letter: '', number: 11 }, { letter: '', number: 12 }, { letter: '', number: 13 }, { letter: '', number: 14 }, { letter: '', number: 15 }],
+        [{ letter: '', number: 16 }, { letter: '', number: 17 }, { letter: '', number: 18 }, { letter: '', number: 19 }, { letter: '', number: 20 }],
+        [{ letter: '', number: 21 }, { letter: '', number: 22 }, { letter: '', number: 23 }, { letter: '', number: 24 }, { letter: '', number: 25 }]
       ],
+    
       clues: {
         across: [
-          { number: 1, clue: 'Slang for self pleasure', cells: [{ row: 0, col: 1 }, { row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 }] },
-          { number: 5, clue: 'Proud _ (song)', cells: [{ row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 }] },
-          { number: 9, clue: '_ Diem', cells: [{ row: 2, col: 0 }, { row: 2, col: 1 }, { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 2, col: 4 }] },
-          { number: 14, clue: 'American airport security or Oxford entrance exam', cells: [{ row: 3, col: 1 }, { row: 3, col: 2}, { row: 3, col: 3}] },
-          { number: 17, clue: 'What my mum used to work in', cells: [{ row: 4, col: 3 }, { row: 4, col: 4 }] },
+          { number : 1, clue: "Fake and untrue", cells: [{ "row": 0, "col": 0 }, { "row": 0, "col": 1 }, { "row": 0, "col": 2 }, { "row": 0, "col": 3 }, { "row": 0, "col": 4 }] },
+          { number : 6, clue: "Smell and odour", cells: [{ "row": 1, "col": 0 }, { "row": 1, "col": 1 }, { "row": 1, "col": 2 }, { "row": 1, "col": 3 }, { "row": 1, "col": 4 }] },
+          { number: 11, clue: "The way my self-esteem doesn't go", cells: [{ "row": 2, "col": 0 }, { "row": 2, "col": 1 }, { "row": 2, "col": 2 }, { "row": 2, "col": 3 }, { "row": 2, "col": 4 }] },
+          { number: 16, clue: "Aroma and odour", cells: [{ "row": 3, "col": 0 }, { "row": 3, "col": 1 }, { "row": 3, "col": 2 }, { "row": 3, "col": 3 }, { "row": 3, "col": 4 }] },
+          { number: 21, clue: "I never wake up like this" , cells: [{ "row": 4, "col": 0 }, { "row": 4, "col": 1 }, { "row": 4, "col": 2 }, { "row": 4, "col": 3 }, { "row": 4, "col": 4 }] }
         ],
-        down: [
-          { number: 1, clue: 'ENI____IC ????(mysterious)', cells: [{ row: 0, col: 1 }, { row: 1 , col: 1 }, { row: 2, col: 1 },  { row: 3, col: 1 }] },
-          { number: 2, clue: 'What a cox directs', cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }, { row: 2, col: 2 },  { row: 3, col: 2}] },
-          { number: 3, clue: "Oprah's real name", cells: [{ row: 0, col: 3 }, { row: 1, col: 3 }, { row: 2, col: 3 }, { row: 3, col: 3}, { row: 4, col: 3},] },
-          { number: 4, clue: "The day we wasted £50 on Simmons' Bar", cells: [{ row: 0, col: 4 }, { row: 1, col: 4}, { row: 2, col: 4}] },
-          { number: 9, clue: '__ u l8r', cells: [{ row: 2, col: 0 }] },
-          { number: 18, clue: '_eel badman ', cells: [{ row: 4, col: 4 }] },
+        down:  [
+          { number: 1, clue: "Untrue and fake", cells: [{ row: 0, col: 0 }, { row: 1, col: 0 }, { row: 2, col: 0 }, { row: 3, col: 0 }, { row: 4, col: 0 }] },
+          { number: 2, clue: "Odour and smell", cells: [{ row: 0, col: 1 }, { row: 1, col: 1 }, { row: 2, col: 1 }, { row: 3, col: 1 }, { row: 4, col: 1 }] },
+          { number: 3, clue: "My weight after cutting my hair", cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }, { row: 2, col: 2 }, { row: 3, col: 2 }, { row: 4, col: 2 }] },
+          { number: 4, clue: "Odour and aroma", cells: [{ row: 0, col: 3 }, { row: 1, col: 3 }, { row: 2, col: 3 }, { row: 3, col: 3 }, { row: 4, col: 3 }] },
+          { number: 5, clue: "When we started dating during Akshar", cells: [{ row: 0, col: 4 }, { row: 1, col: 4 }, { row: 2, col: 4 }, { row: 3, col: 4 }, { row: 4, col: 4 }] }
         ],
       },
       answers: {
         across: {
-          1: 'GOON',
-          5: 'MARY',
-          9: 'CARPE',
-          14: 'TSA',
-          17: 'HR',
+          1: 'FALSE',
+          6: 'AROMA',
+          11: 'LOWER',
+          16: 'SMELL',
+          21: 'EARLY',
         },
         down: {
-          1: 'GMAT',
-          2: 'OARS',
-          3: 'ORPAH',
-          4: 'NYE',
-          9: 'C',
-          18: 'R',
+          1: 'FALSE',
+          2: 'AROMA',
+          3: 'LOWER',
+          4: 'SMELL',
+          5: 'EARLY'
         },
       },
     }
@@ -104,14 +103,14 @@ function getTodayCrosswordIndex() {
     const daysSinceStart = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
   
     const crosswordIndex = daysSinceStart % crosswords.length;
+    
     return crosswordIndex;
   }
   
   // Get today's crossword
 const todayCrosswordIndex = getTodayCrosswordIndex();
-//const crossword = crosswords[todayCrosswordIndex]; (this would be the code but i'm testing with just one crossword)
-const crossword = crosswords[0]
-  
+const crossword = crosswords[1]; 
+
 
   
 // Generate the crossword grid

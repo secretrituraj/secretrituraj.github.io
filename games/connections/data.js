@@ -54,4 +54,31 @@ const puzzles = [
         { text: 'ES', groupId: 4 }
       ]
     },
+    {
+      // Puzzle 2
+      themes: {
+        1: 'Types of Star',
+        2: 'Types of Ball',
+        3: 'Most Common Jamaican surnames',
+        4: 'Country codes youve visited 2023/4'
+      },
+      words: [
+        { text: 'Michelin', groupId: 1 },
+        { text: 'Shooting', groupId: 1 },
+        { text: 'Throwing', groupId: 1 },
+        { text: 'Death', groupId: 1 },
+        { text: 'Hildas', groupId: 2 },
+        { text: 'Basket', groupId: 2 },
+        { text: '4000 degree hot iron', groupId: 2 },
+        { text: 'Blue ', groupId: 2 },
+        { text: 'Brown', groupId: 3 },
+        { text: 'Williams', groupId: 3 },
+        { text: 'Smith', groupId: 3 },
+        { text: 'Johnson', groupId: 3 },
+        { text: 'Macron', groupId: 4 },
+        { text: 'Putin', groupId: 4 },
+        { text: 'Trump', groupId: 4 },
+        { text: 'Lula', groupId: 4 }
+      ]
+    },
   ];
