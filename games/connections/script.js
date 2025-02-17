@@ -325,8 +325,8 @@ function getPuzzleOfTheDay() {
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
   
   //const index = diffDays % puzzles.length;
-  const index = 2
-  return puzzles[index];
+  const index = 3
+    return puzzles[index];
 }
 
 // Add group to found groups container

@@ -55,12 +55,12 @@ const puzzles = [
       ]
     },
     {
-      // Puzzle 2
+      // Puzzle 3
       themes: {
         1: 'Types of Star',
         2: 'Types of Ball',
         3: 'Most Common Jamaican surnames',
-        4: 'Country codes youve visited 2023/4'
+        4: 'Current World Leaders'
       },
       words: [
         { text: 'Michelin', groupId: 1 },
@@ -81,4 +81,33 @@ const puzzles = [
         { text: 'Lula', groupId: 4 }
       ]
     },
+
+    {
+      // Puzzle 4
+      themes: {
+        1: 'Things you are',
+        2: 'Sweet things',
+        3: 'Pasties',
+        4: 'Types of "B"'
+      },
+      words: [
+        { text: 'Beautiful', groupId: 1 },
+        { text: 'Gorgeous', groupId: 1 },
+        { text: 'Attractive', groupId: 1 },
+        { text: 'Hot', groupId: 1 },
+        { text: 'Chocolate', groupId: 2 },
+        { text: 'Candy', groupId: 2 },
+        { text: 'Sugar', groupId: 2 },
+        { text: 'Revenge ', groupId: 2 },
+        { text: 'Jamaican', groupId: 3 },
+        { text: 'Cornish', groupId: 3 },
+        { text: 'Gyoza', groupId: 3 },
+        { text: 'Calzone', groupId: 3 },
+        { text: 'Queen', groupId: 4 },
+        { text: 'Yonce', groupId: 4 },
+        { text: 'Irving', groupId: 4 },
+        { text: 'Real', groupId: 4 }
+      ]
+    },
+       
   ];

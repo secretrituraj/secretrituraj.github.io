@@ -93,6 +93,49 @@ const crosswords = [
           5: 'EARLY'
         },
       },
+    },
+    {
+      // Crossword 2
+      grid: [
+        [{ letter: '', number: 1 }, { letter: '', number: 2 }, { letter: '', number: 3 }, { letter: '', number: 4 }, { letter: '', number: 5 }],
+        [{ letter: '', number: 6 }, { letter: '', number: 7 }, { letter: '', number: 8 }, { letter: '', number: 9 }, { letter: '', number: 10 }],
+        [{ letter: '', number: 11 }, { letter: '', number: 12 }, { letter: '', number: 13 }, { letter: '', number: 14 }, { letter: '', number: 15 }],
+        [{ letter: '', number: 16 }, { letter: '', number: 17 }, { letter: '', number: 18 }, { letter: '', number: 19 }, { letter: '', number: 20 }],
+        [{ letter: '', number: 21 }, { letter: '', number: 22 }, { letter: '', number: 23 }, { letter: '', number: 24 }, { letter: '', number: 25 }]
+      ],
+    
+      clues: {
+        across: [
+          { number : 1, clue: "A+ or C", cells: [{ "row": 0, "col": 0 }, { "row": 0, "col": 1 }, { "row": 0, "col": 2 }, { "row": 0, "col": 3 }, { "row": 0, "col": 4 }] },
+          { number : 6, clue: "What you should feel around me", cells: [{ "row": 1, "col": 0 }, { "row": 1, "col": 1 }, { "row": 1, "col": 2 }, { "row": 1, "col": 3 }, { "row": 1, "col": 4 }] },
+          { number: 11, clue: "Amidst and between", cells: [{ "row": 2, "col": 0 }, { "row": 2, "col": 1 }, { "row": 2, "col": 2 }, { "row": 2, "col": 3 }, { "row": 2, "col": 4 }] },
+          { number: 16, clue: "Ab/Calf/Leg exercise", cells: [{ "row": 3, "col": 0 }, { "row": 3, "col": 1 }, { "row": 3, "col": 2 }, { "row": 3, "col": 3 }, { "row": 3, "col": 4 }] },
+          { number: 21, clue: "I never wake up like this" , cells: [{ "row": 4, "col": 0 }, { "row": 4, "col": 1 }, { "row": 4, "col": 2 }, { "row": 4, "col": 3 }, { "row": 4, "col": 4 }] }
+        ],
+        down:  [
+          { number: 1, clue: "My glasses are not protected against this - also means to look angrily at", cells: [{ row: 0, col: 0 }, { row: 1, col: 0 }, { row: 2, col: 0 }, { row: 3, col: 0 }, { row: 4, col: 0 }] },
+          { number: 2, clue: "___ Polanski", cells: [{ row: 0, col: 1 }, { row: 1, col: 1 }, { row: 2, col: 1 }, { row: 3, col: 1 }, { row: 4, col: 1 }] },
+          { number: 3, clue: "Stay away", cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }, { row: 2, col: 2 }, { row: 3, col: 2 }, { row: 4, col: 2 }] },
+          { number: 4, clue: "What you always say my hair is", cells: [{ row: 0, col: 3 }, { row: 1, col: 3 }, { row: 2, col: 3 }, { row: 3, col: 3 }, { row: 4, col: 3 }] },
+          { number: 5, clue: "Me this past week because of abstinence", cells: [{ row: 0, col: 4 }, { row: 1, col: 4 }, { row: 2, col: 4 }, { row: 3, col: 4 }, { row: 4, col: 4 }] }
+        ],
+      },
+      answers: {
+        across: {
+          1: 'GRADE',
+          6: 'LOVED',
+          11: 'AMONG',
+          16: 'RAISE',
+          21: 'ENDED',
+        },
+        down: {
+          1: 'GLARE',
+          2: 'ROMAN',
+          3: 'AVOID',
+          4: 'DENSE',
+          5: 'EDGED'
+        },
+      },
     }
   ];
   
@@ -110,7 +153,7 @@ function getTodayCrosswordIndex() {
   // Get today's crossword
 const todayCrosswordIndex = getTodayCrosswordIndex();
 // const crossword = crosswords[todayCrosswordIndex]
- const crossword = crosswords[1]; 
+ const crossword = crosswords[2]; 
 
 
   
