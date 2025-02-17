@@ -110,11 +110,11 @@ const crosswords = [
           { number : 6, clue: "What you should feel around me", cells: [{ "row": 1, "col": 0 }, { "row": 1, "col": 1 }, { "row": 1, "col": 2 }, { "row": 1, "col": 3 }, { "row": 1, "col": 4 }] },
           { number: 11, clue: "Amidst and between", cells: [{ "row": 2, "col": 0 }, { "row": 2, "col": 1 }, { "row": 2, "col": 2 }, { "row": 2, "col": 3 }, { "row": 2, "col": 4 }] },
           { number: 16, clue: "Ab/Calf/Leg exercise", cells: [{ "row": 3, "col": 0 }, { "row": 3, "col": 1 }, { "row": 3, "col": 2 }, { "row": 3, "col": 3 }, { "row": 3, "col": 4 }] },
-          { number: 21, clue: "I never wake up like this" , cells: [{ "row": 4, "col": 0 }, { "row": 4, "col": 1 }, { "row": 4, "col": 2 }, { "row": 4, "col": 3 }, { "row": 4, "col": 4 }] }
+          { number: 21, clue: "Finished and completed" , cells: [{ "row": 4, "col": 0 }, { "row": 4, "col": 1 }, { "row": 4, "col": 2 }, { "row": 4, "col": 3 }, { "row": 4, "col": 4 }] }
         ],
         down:  [
           { number: 1, clue: "My glasses are not protected against this - also means to look angrily at", cells: [{ row: 0, col: 0 }, { row: 1, col: 0 }, { row: 2, col: 0 }, { row: 3, col: 0 }, { row: 4, col: 0 }] },
-          { number: 2, clue: "___ Polanski", cells: [{ row: 0, col: 1 }, { row: 1, col: 1 }, { row: 2, col: 1 }, { row: 3, col: 1 }, { row: 4, col: 1 }] },
+          { number: 2, clue: "___ Polanski.", cells: [{ row: 0, col: 1 }, { row: 1, col: 1 }, { row: 2, col: 1 }, { row: 3, col: 1 }, { row: 4, col: 1 }] },
           { number: 3, clue: "Stay away", cells: [{ row: 0, col: 2 }, { row: 1, col: 2 }, { row: 2, col: 2 }, { row: 3, col: 2 }, { row: 4, col: 2 }] },
           { number: 4, clue: "What you always say my hair is", cells: [{ row: 0, col: 3 }, { row: 1, col: 3 }, { row: 2, col: 3 }, { row: 3, col: 3 }, { row: 4, col: 3 }] },
           { number: 5, clue: "Me this past week because of abstinence", cells: [{ row: 0, col: 4 }, { row: 1, col: 4 }, { row: 2, col: 4 }, { row: 3, col: 4 }, { row: 4, col: 4 }] }
